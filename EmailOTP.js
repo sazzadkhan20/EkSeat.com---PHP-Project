@@ -16,8 +16,8 @@ function SentOTP() {
   let emailbody = `<h1>Your OTP is: ${otp_code}</h1>`;
 
   Email.send({
-    SecureToken: "eee7ecc3-f9ab-4b29-bc02-65e5a22a0e6e",
-    To: "zohurulsazzad@gmail.com",
+    SecureToken: "a3f4397f-9bd0-4f31-9eb2-fbaad640c59d",
+    To: email.value,
     From: "sazzad53913@gmail.com",
     Subject: "OTP Verification",
     Body: emailbody,
