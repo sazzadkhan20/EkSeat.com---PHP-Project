@@ -3,25 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Box</title>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="EmailOTP.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <title>Signup</title>
   </head>
   <body>
-    <section id="login">
-      <img src="Resources/logo2.jpg" alt="Logo1" class="box-logo" />
+    <section id="signup">
+      <img src="Resources/logo2.jpg" alt="Logo" class="box-logo" />
+
+      <!-- Email input -->
       <input
         type="text"
         id="email"
-        placeholder="email/phone"
+        placeholder="Enter your email/phone"
         class="input-box"
       />
-      <input type="password" placeholder="password" class="input-box" />
-      <!-- This is a comment -->
-      <!-- This comment has been created by Mitu -->
-      <button class="btn">Sign in</button>
-      <a href="#" class="forgot">Forgot Password?</a><br />
-      <small>Don't have an account? <a href="signup.html">Sign up</a></small>
+
+      <!-- Verify button -->
+      <button class="btn" type="button" onclick="SentOTP()">Verify</button>
+
+      <a href="#" class="forgot">Forgot Password?</a>
     </section>
   </body>
 </html>
