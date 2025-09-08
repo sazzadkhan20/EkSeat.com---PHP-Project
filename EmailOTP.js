@@ -40,10 +40,10 @@ function verifyOTP() {
   if (enteredOTP === "") {
     alert("Please enter the OTP.");
   } else if (enteredOTP === savedOTP) {
-    alert("✅ OTP Verified Successfully!");
+    alert("OTP Verified Successfully!");
     window.location.href = "user_Register.html"; // next page
   } else {
-    alert("❌ Invalid OTP. Please try again.");
+    alert("Invalid OTP. Please try again.");
   }
 }
 
