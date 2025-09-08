@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="EmailOTP.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Signup</title>
-</head>
-<body>
-  <header>
-    <nav id="navbar">
-            <table>
-                <tr>
-                    <td><a href="index.html" id="nav_link"><img src="Resources/shortlogo.png" alt="Main Logo" id="Nav_Logo"></a></td>
-                    <td id="navbar_TD"><a href="hire_Seat.html" id="nav_link">Drive</a></td>
-                    <td id="navbar_TD"><a href="hire_Car.html" id="nav_link">Ride</a></td>
-                    <td id="navbar_TD"><a href="aboutus.html" id="nav_link">About Us</a></td>
-                    <td id="navbar_TD" style="width: 650px; text-align:right;"><a href="signIn.html" id="nav_link">Sign In</a></td>
-                </tr>
-            </table>
-            
-        </nav>
-  </header>
+  </head>
+  <body>
     <section id="signup">
-      <img src="Resources/logo2.jpg" alt="Logo1" class="box-logo" />
+      <img src="Resources/logo2.jpg" alt="Logo" class="box-logo" />
 
-      <input type="text" placeholder="email/phone" class="input-box" />
-      <button class="btn"><a href="verify_Otp.html">Verify</a></button>
+      <!-- Email input -->
+      <input
+        type="text"
+        id="email"
+        placeholder="Enter your email/phone"
+        class="input-box"
+      />
+
+      <!-- Verify button -->
+      <button class="btn" type="button" onclick="SentOTP()">Verify</button>
 
       <a href="#" class="forgot">Forgot Password?</a>
     </section>
-</body>
+  </body>
 </html>
