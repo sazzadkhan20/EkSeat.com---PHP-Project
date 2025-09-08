@@ -43,17 +43,36 @@ a{
   flex-direction: column;
   align-items: center;
 }
-#register{
-  width: 250px;
-  height: 300px;
+#register_User{
+  width: 600px;
+  height: 250px;
   padding: 60px 30px 30px 30px;
   background: rgba(94, 145, 170, 0.2);
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   position: relative;
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
+}
+#register_Driver{
+  width: 600px;
+  height: 400px;
+  padding: 60px 30px 30px 30px;
+  background: rgba(94, 145, 170, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+#double_input{
+  display: flex; 
+  gap: 10px; 
+  width: 100%;
 }
 .box-logo {
   position: absolute;
@@ -96,4 +115,35 @@ a{
 }
 .forgot:hover {
   text-decoration: underline;
+}
+#navbar{
+  width: 100%;
+  height: 50px;
+  background: rgba(48, 65, 99, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  padding: 0 100px 0 200px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+#Nav_Logo{
+  width: 150px;
+  height: 24.75px;
+}
+#navbar_TD{
+  color: white;
+  text-align: center;
+  width: 100px;
+}
+#signup_btn{
+  height: 40px;
+  width: 60px;
+  border: none;
+  border-radius: 15px;
+  background-color: white;
+  font-size: 16px;
 }
