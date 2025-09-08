@@ -1,56 +1,45 @@
-document.getElementById('register').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent form submission for validation
+function ValidateUserForm() {
+  const name = document.getElementById("Name").value.trim();
+  const phone = document.getElementById("Phone").value.trim();
+  const nid = document.getElementById("NID").value.trim();
+  const email = document.getElementById("Email").value.trim();
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+  const errorEl = document.getElementById("errorMessage");
 
-  let isValid = true; // Flag to check if the form is valid
-  const name = document.querySelector('input[placeholder="Name"]');
-  const phone = document.querySelector('input[placeholder="Phone"]');
-  const email = document.querySelector('input[placeholder="email"]');
-  const nid = document.querySelector('input[placeholder="NID"]');
-  const password = document.querySelector('input[placeholder="Create a password"]');
-  const confirmPassword = document.querySelector('input[placeholder="Confirm your password"]');
-  
-  // Validate Name
-  if (name.value.trim() === "") {
-    alert("Name is required!");
-    isValid = false;
+  // clear previous message
+  errorEl.textContent = "";
+
+  if (!name || !phone || !nid || !email || !password || !confirmPassword) {
+    errorEl.textContent = "All fields are required.";
+    return false;
   }
 
-  // Validate Phone (check if it's a valid number)
-  const phonePattern = /^01[3-9][0-9]{8}$/; // Change regex to match your country's phone format
-  if (!phonePattern.test(phone.value)) {
-    alert("Please enter a valid 11-digit phone number!");
-    isValid = false;
+  if (password !== confirmPassword) {
+    errorEl.textContent = "Passwords do not match.";
+    return false;
   }
 
-  // Validate Email format
-  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  if (!emailPattern.test(email.value)) {
-    alert("Please enter a valid email address!");
-    isValid = false;
+  if (password.length < 8) {
+    errorEl.textContent = "Password must be at least 8 characters long.";
+    return false;
   }
 
-  // Validate NID (example: numeric and a specific length, change as per your requirement)
-  if (nid.value.trim() === "") {
-    alert("NID is required!");
-    isValid = false;
+  // BD mobile: 11 digits starting with 01 and next digit 3–9
+  if (!/^(01)[3-9]\d{8}$/.test(phone)) {
+    errorEl.textContent = "Please provide a valid phone number (e.g., 01XXXXXXXXX).";
+    return false;
   }
 
-  // Validate Password
-  if (password.value.length < 6) {
-    alert("Password must be at least 6 characters long!");
-    isValid = false;
+  // simple email check
+  if (!/\w*[@][A-Za-z]*[\.][a-z]{3}$/.test(email)) {
+    errorEl.textContent = "Please provide a valid email address.";
+    return false;
   }
-
-  // Check if passwords match
-  if (password.value !== confirmPassword.value) {
-    alert("Passwords do not match!");
-    isValid = false;
+  // NID: 10 or 13 digits
+  if (!/^\d{10}$|^\d{13}$/.test(nid)) {
+    errorEl.textContent = "Please provide a valid NID (10 or 13 digits).";
+    return false;
   }
-
-  // If all validations pass, submit the form
-  if (isValid) {
-    alert("Form is valid! Proceeding with submission.");
-    // Uncomment below line to actually submit the form
-    // event.target.submit(); 
-  }
-});
+  return true; 
+}
