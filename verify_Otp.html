@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="EmailOTP.js"></script>
     <title>OTP Verification</title>
-</head>
-<body>
+  </head>
+  <body>
     <section id="otp-verification">
-        <h2>Enter OTP</h2>
-        <input type="text" placeholder="Enter OTP" class="input-box" />
-        <button class="btn"><a href="user_Register.html">Verify</a></button>
-        <button class="btn"><a href="signup.html">Resend OTP</a></button>
+      <h2>Enter OTP</h2>
+
+      <!-- OTP input -->
+      <input
+        type="text"
+        id="verify_OTP"
+        placeholder="Enter OTP"
+        class="input-box"
+      />
+
+      <!-- Buttons -->
+      <button class="btn" type="button" onclick="verifyOTP()">Verify</button>
+      <button class="btn" type="button" onclick="resendOTP()">
+        Resend OTP
+      </button>
     </section>
-</body>
+  </body>
 </html>
