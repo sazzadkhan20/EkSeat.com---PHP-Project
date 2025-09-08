@@ -22,24 +22,28 @@
         </nav>
     </header>
     <section>
-        <form action="" id="register_User" method="post">
+        <form action="" id="register_User" method="post" onsubmit="return ValidateUserForm()">
             <img src="Resources/userIcon.png" alt="Logo1" class="box-logo" />
             <div id="double_input">
-                <input type="text" placeholder="Name" class="input-box" required/>
-                <input type="number" placeholder="Phone" class="input-box" required/>
+                <input type="text" id="Name" placeholder="Name" class="input-box" required/>
+                <input type="number" id="Phone" placeholder="Phone" class="input-box" required/>
             </div>
             
             <div id="double_input">
-                <input type="text" placeholder="email" class="input-box" required/>
-                <input type="text" placeholder="NID" class="input-box" required/>
+                <input type="text" id="Email" placeholder="Email" class="input-box" required/>
+                <input type="text" id="NID" placeholder="NID" class="input-box" required/>
             </div>
 
             <div id="double_input">
-                <input type="password" placeholder="Create a password" class="input-box" required/>
-                <input type="password" placeholder="Confirm your password" class="input-box" required/>
+                <input type="password" id="password" placeholder="Create a password" class="input-box" required/>
+                <input type="password" id="confirmPassword" placeholder="Confirm your password" class="input-box" required/>
 
             </div>
-            <button class="btn" onclick="return validateForm()"><a href="Home.html">Let's Get Started</a></button>
+            <div>
+                <p id="errorMessage" style="color: red;"></p>
+            </div>
+           <button type="submit" class="btn">Let's Get Started</button>
+            
         </form>
 
     </section>   
