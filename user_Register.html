@@ -27,23 +27,23 @@
        <center><h3 style="margin-bottom: 50px;">Select User Type</h3></center>
         <button id="userButton"><img src="Resources/userIcon.png" alt="Logo1" class="box-logo" /></button>
         <button id="driverButton"> <img src="Resources/driverIcon.jpg" alt="Logo1" class="box-logo" /></button>
-    </div>
+    </div>   
 
     <div id="user_Registration" style="display:none;">
-        <form action="" id="register_User" method="post" onsubmit="return ValidateUserForm()">
+        <form action="register.php" id="register_User" method="post" onsubmit="return ValidateUserForm()">
             
             <div id="double_input">
-                <input type="text" id="Name" placeholder="Name" class="input-box" required/>
-                <input type="number" id="Phone" placeholder="Phone" class="input-box" required/>
+                <input type="text" id="Name" name = "Name" placeholder="Name" class="input-box" required/>
+                <input type="number" id="Phone"name = "Phone"  placeholder="Phone" class="input-box" required/>
             </div>
             
             <div id="double_input">
-                <input type="text" id="Email" placeholder="Email" class="input-box" required/>
-                <input type="text" id="NID" placeholder="NID" class="input-box" required/>
+                <input type="text" id="Email" name = "Email" placeholder="Email" class="input-box" required/>
+                <input type="text" id="NID" name = "NID" placeholder="NID" class="input-box" required/>
             </div>
 
             <div id="double_input">
-                <input type="password" id="password" placeholder="Create a password" class="input-box" required/>
+                <input type="password" id="password" name = "password"  placeholder="Create a password" class="input-box" required/>
                 <input type="password" id="confirmPassword" placeholder="Confirm your password" class="input-box" required/>
 
             </div>
