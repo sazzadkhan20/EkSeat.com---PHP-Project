@@ -12,30 +12,38 @@
             <table>
                 <tr>
                     <td><a href="index.html" id="nav_link"><img src="Resources/shortlogo.png" alt="Main Logo" id="Nav_Logo"></a></td>
-                    <td id="navbar_TD"><a href="hire_Seat.html" id="nav_link">Drive</a></td>
-                    <td id="navbar_TD"><a href="hire_Car.html" id="nav_link">Ride</a></td>
+                    <td id="navbar_TD"><a href="drive.html" id="nav_link">Drive</a></td>
+                    <td id="navbar_TD"><a href="ride.html" id="nav_link">Ride</a></td>
                     <td id="navbar_TD"><a href="aboutus.html" id="nav_link">About Us</a></td>
                     <td id="navbar_TD" style="width: 650px; text-align:right;"><a href="signIn.html" id="nav_link">Sign In</a></td>
+                    <td id="navbar_TD"><a href="user_Register.html" id="nav_link"><button id="signup_btn">Signup</button></a></td>
                 </tr>
             </table>
             
         </nav>
     </header>
-    <section>
-        <form action="" id="register_User" method="post" onsubmit="return ValidateUserForm()">
-            <img src="Resources/userIcon.png" alt="Logo1" class="box-logo" />
+
+    <div>
+       <center><h3 style="margin-bottom: 50px;">Select User Type</h3></center>
+        <button id="userButton"><img src="Resources/userIcon.png" alt="Logo1" class="box-logo" /></button>
+        <button id="driverButton"> <img src="Resources/driverIcon.jpg" alt="Logo1" class="box-logo" /></button>
+    </div>   
+
+    <div id="user_Registration" style="display:none;">
+        <form action="register.php" id="register_User" method="post" onsubmit="return ValidateUserForm()">
+            
             <div id="double_input">
-                <input type="text" id="Name" placeholder="Name" class="input-box" required/>
-                <input type="number" id="Phone" placeholder="Phone" class="input-box" required/>
+                <input type="text" id="Name" name = "Name" placeholder="Name" class="input-box" required/>
+                <input type="number" id="Phone"name = "Phone"  placeholder="Phone" class="input-box" required/>
             </div>
             
             <div id="double_input">
-                <input type="text" id="Email" placeholder="Email" class="input-box" required/>
-                <input type="text" id="NID" placeholder="NID" class="input-box" required/>
+                <input type="text" id="Email" name = "Email" placeholder="Email" class="input-box" required/>
+                <input type="text" id="NID" name = "NID" placeholder="NID" class="input-box" required/>
             </div>
 
             <div id="double_input">
-                <input type="password" id="password" placeholder="Create a password" class="input-box" required/>
+                <input type="password" id="password" name = "password"  placeholder="Create a password" class="input-box" required/>
                 <input type="password" id="confirmPassword" placeholder="Confirm your password" class="input-box" required/>
 
             </div>
@@ -46,7 +54,44 @@
             
         </form>
 
-    </section>   
-    <script src="userFormValidation.js"></script>
+    </div>  
+    
+    <div id="driver_Registration" style="display:none;">
+        <form action="" id="register_Driver" method="post" onsubmit="return validateDriverForm()">
+        
+            <div id="double_input">
+                <input type="text" id="Name2" placeholder="Name" class="input-box" required/>
+                <input type="number" id="NID2" placeholder="NID" class="input-box" required/>
+            </div>
+
+            <div id="double_input">
+                <input type="text" id="email2" placeholder="Email" class="input-box" required/>
+                <input type="text" id="Phone2" placeholder="Phone" class="input-box" required/>
+            </div>
+
+            <div id="double_input">
+                <input type="text" id="address" placeholder="Address" class="input-box" required/>
+            </div>
+                        
+            <div id="double_input">
+                <select name="vehicle_type" id="vehicle_type" class="input-box" required>
+                    <option value="" disabled selected>Select Vehicle Type</option>
+                    <option value="car">Car</option>
+                    <option value="bike">Bike</option>
+                </select>
+            </div>
+            <div id="double_input">
+                <input type="password" id="password2" placeholder="Create a password" class="input-box" required/>
+                <input type="password" id="confirmPassword2" placeholder="Confirm your password" class="input-box" required/>
+            </div>
+            <div>
+                <p id="errorMessage2" style="color: red;"></p>
+            </div>
+
+            <button type="submit" class="btn">Let's Get Started</button>
+        </form>
+
+    </div>    
+    <script src="registrationFormValidation.js"></script>
 </body>
 </html>
