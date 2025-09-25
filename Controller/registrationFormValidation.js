@@ -27,7 +27,8 @@ function ValidateUserForm() {
 
   // BD mobile: 11 digits starting with 01 and next digit 3–9
   if (!/^(01)[3-9]\d{8}$/.test(phone)) {
-    errorEl.textContent = "Please provide a valid phone number (e.g., 01XXXXXXXXX).";
+    errorEl.textContent =
+      "Please provide a valid phone number (e.g., 01XXXXXXXXX).";
     return false;
   }
 
@@ -42,7 +43,7 @@ function ValidateUserForm() {
     errorEl.textContent = "Please provide a valid NID (10 or 13 digits).";
     return false;
   }
-  return true; 
+  return true;
 }
 
 function validateDriverForm() {
@@ -59,7 +60,16 @@ function validateDriverForm() {
   // clear previous message
   errorE2.textContent = "";
 
-  if (!name || !phone || !nid || !email || !vehicleType || !address || !password || !confirmPassword) {
+  if (
+    !name ||
+    !phone ||
+    !nid ||
+    !email ||
+    !vehicleType ||
+    !address ||
+    !password ||
+    !confirmPassword
+  ) {
     errorE2.textContent = "All fields are required.";
     return false;
   }
@@ -76,7 +86,8 @@ function validateDriverForm() {
 
   // BD mobile: 11 digits starting with 01 and next digit 3–9
   if (!/^(01)[3-9]\d{8}$/.test(phone)) {
-    errorE2.textContent = "Please provide a valid phone number (e.g., 01XXXXXXXXX).";
+    errorE2.textContent =
+      "Please provide a valid phone number (e.g., 01XXXXXXXXX).";
     return false;
   }
 
@@ -91,16 +102,15 @@ function validateDriverForm() {
     errorE2.textContent = "Please provide a valid NID (10 or 13 digits).";
     return false;
   }
-  return true; 
+  return true;
 }
 
-
-document.getElementById("userButton").addEventListener("click", function() {
-    document.getElementById("user_Registration").style.display = "block";
-    document.getElementById("driver_Registration").style.display = "none";
+document.getElementById("userButton").addEventListener("click", function () {
+  document.getElementById("user_Registration").style.display = "block";
+  document.getElementById("driver_Registration").style.display = "none";
 });
 
-document.getElementById("driverButton").addEventListener("click", function() {
-    document.getElementById("driver_Registration").style.display = "block";
-    document.getElementById("user_Registration").style.display = "none";
-}); 
+document.getElementById("driverButton").addEventListener("click", function () {
+  document.getElementById("driver_Registration").style.display = "block";
+  document.getElementById("user_Registration").style.display = "none";
+});

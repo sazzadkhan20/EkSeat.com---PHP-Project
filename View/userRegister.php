@@ -1,36 +1,21 @@
+<?php include_once 'nevigationBar.html'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>user Registration</title>
+    <title>User Registration</title>
 </head>
 <body>
-    <header>
-        <nav id="navbar">
-            <table>
-                <tr>
-                    <td><a href="index.html" id="nav_link"><img src="Resources/shortlogo.png" alt="Main Logo" id="Nav_Logo"></a></td>
-                    <td id="navbar_TD"><a href="drive.html" id="nav_link">Drive</a></td>
-                    <td id="navbar_TD"><a href="ride.html" id="nav_link">Ride</a></td>
-                    <td id="navbar_TD"><a href="aboutus.html" id="nav_link">About Us</a></td>
-                    <td id="navbar_TD" style="width: 650px; text-align:right;"><a href="signIn.html" id="nav_link">Sign In</a></td>
-                    <td id="navbar_TD"><a href="signup.html" id="nav_link"><button id="signup_btn">Signup</button></a></td>
-                </tr>
-            </table>
-            
-        </nav>
-    </header>
-
     <div>
        <center><h3 style="margin-bottom: 50px;">Select User Type</h3></center>
         <button id="userButton"><img src="Resources/userIcon.png" alt="Logo1" class="box-logo" /></button>
         <button id="driverButton"> <img src="Resources/driverIcon.png" alt="Logo1" class="box-logo" /></button>
-    </div>   
+    </div>
 
     <div id="user_Registration" style="display:none;">
-        <form action="register.php" id="register_User" method="post" onsubmit="return ValidateUserForm()">
+        <form action="../Model/register.php" id="register_User" method="post" onsubmit="return ValidateUserForm()">
             
             <div id="double_input">
                 <input type="text" id="Name" name = "Name" placeholder="Name" class="input-box" required/>
@@ -90,6 +75,6 @@
         </form>
 
     </div>    
-    <script src="registrationFormValidation.js"></script>
+    <script src="../Controller/registrationFormValidation.js"></script>
 </body>
 </html>

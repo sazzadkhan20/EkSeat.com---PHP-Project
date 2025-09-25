@@ -1,27 +1,13 @@
+<?php include_once 'nevigationBar.html'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>user Registration</title>
+    <title>Driver Registration</title>
 </head>
 <body>
-    <header>
-        <nav id="navbar">
-            <table>
-                <tr>
-                    <td><a href="index.html" id="nav_link"><img src="Resources/shortlogo.png" alt="Main Logo" id="Nav_Logo"></a></td>
-                    <td id="navbar_TD"><a href="drive.html" id="nav_link">Drive</a></td>
-                    <td id="navbar_TD"><a href="ride.html" id="nav_link">Ride</a></td>
-                    <td id="navbar_TD"><a href="aboutus.html" id="nav_link">About Us</a></td>
-                    <td id="navbar_TD" style="width: 650px; text-align:right;"><a href="signIn.html" id="nav_link">Sign In</a></td>
-                    <td id="navbar_TD"><a href="signup.html" id="nav_link"><button id="signup_btn">Signup</button></a></td>
-                </tr>
-            </table>
-            
-        </nav>
-    </header>
     <section id="driver_Registration">
         <form action="" id="register_Driver" method="post">
             <img src="Resources/driverIcon.jpg" alt="Logo1" class="box-logo" />
@@ -51,7 +37,7 @@
             <input type="password" placeholder="Confirm your password" class="input-box" required/>
             </div>
 
-            <button class="btn"><a href="Home.html">Let's Get Started</a></button>
+            <button class="btn"><a href="home.php">Let's Get Started</a></button>
         </form>
 
     </section>    
