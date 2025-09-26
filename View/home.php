@@ -1,4 +1,5 @@
-<?php include_once 'nevigationBar.html'; ?>
+<?php include_once 'nevigationBar.html';?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +15,7 @@
             <p>EkSeat.com is your go-to platform for all your seating needs.</p>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 EkSeat.com</p>
-    </footer>
+   <?php include 'footer.html'; ?>
+   
 </body>
 </html>

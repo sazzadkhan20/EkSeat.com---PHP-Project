@@ -13,5 +13,7 @@
       <input type="password" placeholder="Confirm Password" class="input-box" />
       <button class="btn">Submit</button>
     </section>
+
+   <?php include 'footer.html'; ?>
   </body>
 </html>

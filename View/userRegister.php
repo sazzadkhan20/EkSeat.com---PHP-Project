@@ -76,5 +76,7 @@
 
     </div>    
     <script src="../Controller/registrationFormValidation.js"></script>
+
+<?php include 'footer.html'; ?>
 </body>
 </html>

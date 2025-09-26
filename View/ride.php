@@ -47,8 +47,6 @@
             </tr>
         </table>
     </main>
-    <footer>
-        <p>&copy; 2025 EkSeat.com</p>
-    </footer>
+    <?php include 'footer.html'; ?>
 </body>
 </html>
