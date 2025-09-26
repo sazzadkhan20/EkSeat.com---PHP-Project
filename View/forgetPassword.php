@@ -16,9 +16,6 @@
       <input type="password" name="confirmpassword" placeholder="Confirm Password" class="input-box" required/>
 
       <button type="submit" class="Fbtn">Confirm</button>
-
-      
-      
     </form>
   </section>
 
