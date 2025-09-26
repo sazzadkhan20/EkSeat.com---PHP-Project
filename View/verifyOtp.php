@@ -20,5 +20,7 @@
       <button class="btn"><a href="signUp.php">Resend OTP</a></button>
       <p id="errorMessage_OTP" style="color: red; display: none;"></p>
     </section>
+
+    <?php include 'footer.html'; ?>
   </body>
 </html>

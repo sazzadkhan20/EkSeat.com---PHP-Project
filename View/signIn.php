@@ -22,6 +22,8 @@
       <small>Don't have an account? <a href="signUp.php">Sign up</a></small>
   </section>
   </form>
+
+ <?php include 'footer.html'; ?>
 </body>
 
 </html>

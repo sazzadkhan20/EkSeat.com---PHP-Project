@@ -40,6 +40,7 @@
             <button class="btn"><a href="home.php">Let's Get Started</a></button>
         </form>
 
-    </section>    
+    </section>  
+    <?php include 'footer.html'; ?>
 </body>
 </html>

@@ -18,5 +18,7 @@
       <!-- Verify button -->
       <button class="btn" type="button" onclick="SentOTP()">Send OTP</button>
     </section>
+
+   <?php include 'footer.html'; ?>
   </body>
 </html>
