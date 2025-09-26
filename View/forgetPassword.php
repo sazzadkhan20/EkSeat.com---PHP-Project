@@ -8,11 +8,19 @@
     <title>Forget Password</title>
   </head>
   <body>
-    <section id="new-password">
-      <input type="password" placeholder="New Password" class="input-box" />
-      <input type="password" placeholder="Confirm Password" class="input-box" />
-      <button class="btn">Submit</button>
-    </section>
+    <section class="forgetPassword">
+    <form action = "" method = "POST" id = "forgetPassword">
+    <img src="Resources/logo2.jpg" alt="Logo1" class="box-logo" />
+
+      <input type="password" name="newpassword" placeholder="New Password" class="input-box" required/>
+      <input type="password" name="confirmpassword" placeholder="Confirm Password" class="input-box" required/>
+
+      <button type="submit" class="Fbtn">Confirm</button>
+
+      
+      
+    </form>
+  </section>
 
    <?php include 'footer.html'; ?>
   </body>
