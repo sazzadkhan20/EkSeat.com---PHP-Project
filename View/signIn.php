@@ -20,8 +20,9 @@
 
       <a href="#" class="forgot">Forgot Password?</a><br />
       <small>Don't have an account? <a href="signUp.php">Sign up</a></small>
+    </form>
   </section>
-  </form>
+  
 
  <?php include 'footer.html'; ?>
 </body>
