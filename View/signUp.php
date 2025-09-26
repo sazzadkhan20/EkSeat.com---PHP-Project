@@ -1,4 +1,15 @@
-<?php include_once 'nevigationBar.html'; ?>
+<?php 
+    include_once 'nevigationBar.html'; 
+    session_start();
+    $action = $_GET['action'] ?? '';
+
+    if ($action === "forgot") {
+        // Store somewhere (session or hidden field)
+        $_SESSION['otp_action'] = "forgot";
+    } elseif ($action === "signup") {
+        $_SESSION['otp_action'] = "signup";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -8,6 +8,7 @@
     <title>OTP Verification</title>
   </head>
   <body>
+    <form action="otp.php" method="post">
     <section id="otp-verification">
       <h2>Enter OTP</h2>
       <input
@@ -16,11 +17,11 @@
         placeholder="Enter OTP"
         class="input-box"
       />
-      <button class="btn"><a href="userRegister.php">Verify</a></button>
+      <button type = "submit" class="btn">Verify</button>
       <button class="btn"><a href="signUp.php">Resend OTP</a></button>
       <p id="errorMessage_OTP" style="color: red; display: none;"></p>
     </section>
-
+    </form>
     <?php include 'footer.html'; ?>
   </body>
 </html>

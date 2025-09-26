@@ -16,10 +16,10 @@
       <input type="text" name="email" placeholder="email/phone" class="input-box" required/>
       <input type="password" name="password" placeholder="password" class="input-box" required/>
 
-      <button type="submit" class="btn">Sign in</button>
+      <button type="submit" class="btn">Sign in</button><br/>
 
-      <a href="#" class="forgot">Forgot Password?</a><br />
-      <small>Don't have an account? <a href="signUp.php">Sign up</a></small>
+      <a href="signUp.php?action=forgot" class="forgot">Forgot Password?</a><br />
+      <small>Don't have an account? <a href="signUp.php?action=signup">Sign up</a></small>
     </form>
   </section>
   

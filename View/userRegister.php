@@ -59,8 +59,9 @@
             <div id="double_input">
                 <select name="vehicle_type" id="vehicle_type" class="input-box" required>
                     <option value="" disabled selected>Select Vehicle Type</option>
-                    <option value="car">Car</option>
-                    <option value="bike">Bike</option>
+                    <option value="Car">Car</option>
+                    <option value="Bike">Bike</option>
+                    <option value="CNG">Bus</option>
                 </select>
             </div>
             <div id="double_input">
