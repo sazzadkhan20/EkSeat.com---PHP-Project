@@ -8,7 +8,7 @@
     <title>OTP Verification</title>
   </head>
   <body>
-    <form action="otp.php" method="post">
+    <form action="otp.php" method="post"> 
     <section id="otp-verification">
       <h2>Enter OTP</h2>
       <input
