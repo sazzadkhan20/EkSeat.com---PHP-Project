@@ -1,4 +1,7 @@
-<?php include_once 'nevigationBar.html'; ?>
+<?php 
+    session_start();
+    include_once 'nevigationBar.html'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +18,20 @@
 
       <input type="text" name="email" placeholder="email/phone" class="input-box" required/>
       <input type="password" name="password" placeholder="password" class="input-box" required/>
+      <p id="errorMessage" style="color: red; <?php echo (!isset($_SESSION['error'])) ? 'display: none;' : ''; ?>">
+    <?php
+    if (isset($_SESSION['error'])) {
+        echo htmlspecialchars($_SESSION['error']);
+        unset($_SESSION['error']);
+    }
+    ?>
+    </p>
 
       <button type="submit" class="btn">Sign in</button><br/>
-
       <a href="signUp.php?action=forgot" class="forgot">Forgot Password?</a><br />
       <small>Don't have an account? <a href="signUp.php?action=signup">Sign up</a></small>
     </form>
   </section>
-  
-
  <?php include 'footer.html'; ?>
 </body>
 

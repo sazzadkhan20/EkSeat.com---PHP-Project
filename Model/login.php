@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once 'create.php';
     require_once 'query.php';
     $table_name = "userinfo";
@@ -7,32 +8,21 @@
 
     $email = $_POST['email'];
     $password = $_POST['password'];
-    
-    //Database connection
-    $conn = new mysqli('localhost','root','','ekseat_com');
-    if($conn->connect_error)
-    die('Connection Failed : '.$conn->connect_error);
+    require_once 'queryExecution.php';
+    $result = emailVerify($adquserinfotable, $email);
+    if ($row = $result->fetch_assoc()) 
+    {
+        if ($row['uPassword'] === $password)
+            header("Location: ../View/home.php");
+        else
+        {
+            $_SESSION['error'] = "Invalid Password";
+            header("Location: ../View/signIn.php");
+        }
+    }
     else
     {
-        $stmt = $conn->prepare($adquserinfotable);
-        if (!$stmt) {
-            die("Prepare failed: " . $conn->error);
-            exit();
-        }
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($row = $result->fetch_assoc()) 
-        {
-           if ($row['uPassword'] === $password)
-                header("Location: ../View/home.php");
-            else
-                echo "Invalid Password";
-        }
-        else
-            echo "Invalid Email";
-        $stmt->close();
+        $_SESSION['error'] = "Invalid E-mail/Phone";
+        header("Location: ../View/signIn.php");
     }
-    $conn->close();
 ?>

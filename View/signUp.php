@@ -19,12 +19,19 @@
     <title>Sign Up</title>
   </head>
   <body>
-    <form action="verifyOtp.php" method="post">
+    <form action="../Model/emailVerify.php" method="post">
     <section id="signup">
       <img src="Resources/logo2.jpg" alt="Logo" class="box-logo" />
       <!-- Email input -->
-      <input type="text" id="email" placeholder="Enter your email/phone" class="input-box" />
-      <p id="errorMessage_SignUp" style="color: red; display: none;"></p>
+      <input type="text" id="email" name = 'email' placeholder="Enter your email/phone" class="input-box" />
+       <p id="errorMessage" style="color: red; <?php echo (!isset($_SESSION['error'])) ? 'display: none;' : ''; ?>">
+    <?php
+    if (isset($_SESSION['error'])) {
+        echo htmlspecialchars($_SESSION['error']);
+        unset($_SESSION['error']);
+    }
+    ?>
+    </p>
       <!-- Verify button -->
       <button class="btn" type="submit">Send OTP</button>
     </section>
