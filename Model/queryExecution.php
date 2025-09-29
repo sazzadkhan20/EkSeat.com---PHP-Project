@@ -68,8 +68,8 @@
                 <style>
                     body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
                     .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-                    .header { text-align: center; color: #333; border-bottom: 2px solid #007bff; padding-bottom: 20px; }
-                    .otp-box { background: #007bff; color: white; padding: 15px; border-radius: 5px; text-align: center; font-size: 24px; font-weight: bold; margin: 20px 0; }
+                    .header { text-align: center; color: #333; border-bottom: 2px solid #364160; padding-bottom: 20px; }
+                    .otp-box { background: #364160; color: white; padding: 15px; border-radius: 5px; text-align: center; font-size: 24px; font-weight: bold; margin: 20px 0; }
                     .footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 14px; }
                 </style>
             </head>
