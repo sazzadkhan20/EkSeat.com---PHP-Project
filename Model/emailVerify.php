@@ -15,32 +15,40 @@
     table_create($dbname,$table_name,$cquserinfotable); //table creation
     require_once 'queryExecution.php';
     $result = emailVerify($adquserinfotable, $email);
-    if($_SESSION['otp_action'] === "signup") {
-        if ($row = $result->fetch_assoc()) 
+    if($_SESSION['otp_action'] === "signup")
+    {
+        if ($row = $result->fetch_assoc())
         {
-            $_SESSION['error'] = "E-mail/Phone already registered";
+            $_SESSION['errorSignUp'] = "E-mail/Phone already registered";
+            unsetSession('email');
             header("Location: ../View/signUp.php");
         } 
         else 
         {
             $_SESSION['email'] = $email;
+            sendOTP();
             header("Location: ../View/verifyOtp.php");
         }
     }
-    elseif($_SESSION['otp_action'] === "forgot") {
+    elseif($_SESSION['otp_action'] === "forgot")
+    {
         if ($row = $result->fetch_assoc()) 
         {
+            $_SESSION['email'] = $email;
+            sendOTP();
             header("Location: ../View/verifyOtp.php");
         } 
         else 
         {
-            $_SESSION['error'] = "E-mail/Phone not registered";
+            $_SESSION['errorSignUp'] = "E-mail/Phone not registered";
+            unsetSession('email');
             header("Location: ../View/signUp.php");
         }
     } 
     else 
     {
-        $_SESSION['error'] = "Invalid action";
+        $_SESSION['errorSignUp'] = "Invalid action";
+        unsetSession('email');
         header("Location: ../View/signUp.php");
     }
 

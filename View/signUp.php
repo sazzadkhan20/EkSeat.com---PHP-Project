@@ -24,11 +24,11 @@
       <img src="Resources/logo2.jpg" alt="Logo" class="box-logo" />
       <!-- Email input -->
       <input type="text" id="email" name = 'email' placeholder="Enter your email/phone" class="input-box" />
-       <p id="errorMessage" style="color: red; <?php echo (!isset($_SESSION['error'])) ? 'display: none;' : ''; ?>">
+       <p id="errorMessage" style="color: red; <?php echo (!isset($_SESSION['errorSignUp'])) ? 'display: none;' : ''; ?>">
     <?php
-    if (isset($_SESSION['error'])) {
-        echo htmlspecialchars($_SESSION['error']);
-        unset($_SESSION['error']);
+    if (isset($_SESSION['errorSignUp'])) {
+        echo htmlspecialchars($_SESSION['errorSignUp']);
+        unset($_SESSION['errorSignUp']);
     }
     ?>
     </p>

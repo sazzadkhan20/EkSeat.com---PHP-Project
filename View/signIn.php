@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include_once 'nevigationBar.html'; 
+    include_once 'nevigationBar.html';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,11 +18,11 @@
 
       <input type="text" name="email" placeholder="email/phone" class="input-box" required/>
       <input type="password" name="password" placeholder="password" class="input-box" required/>
-      <p id="errorMessage" style="color: red; <?php echo (!isset($_SESSION['error'])) ? 'display: none;' : ''; ?>">
+      <p id="errorMessage" style="color: red; <?php echo (!isset($_SESSION['errorSignIn'])) ? 'display: none;' : ''; ?>">
     <?php
-    if (isset($_SESSION['error'])) {
-        echo htmlspecialchars($_SESSION['error']);
-        unset($_SESSION['error']);
+    if (isset($_SESSION['errorSignIn'])) {
+        echo htmlspecialchars($_SESSION['errorSignIn']);
+        unset($_SESSION['errorSignIn']);
     }
     ?>
     </p>

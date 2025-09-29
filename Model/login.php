@@ -16,13 +16,13 @@
             header("Location: ../View/home.php");
         else
         {
-            $_SESSION['error'] = "Invalid Password";
+            $_SESSION['errorSignIn'] = "Invalid Password";
             header("Location: ../View/signIn.php");
         }
     }
     else
     {
-        $_SESSION['error'] = "Invalid E-mail/Phone";
+        $_SESSION['errorSignIn'] = "Invalid E-mail/Phone";
         header("Location: ../View/signIn.php");
     }
 ?>

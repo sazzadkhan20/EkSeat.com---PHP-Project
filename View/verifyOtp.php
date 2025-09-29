@@ -1,4 +1,7 @@
-<?php include_once 'nevigationBar.html'; ?>
+<?php 
+  session_start();
+  include_once 'nevigationBar.html'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,18 +11,26 @@
     <title>OTP Verification</title>
   </head>
   <body>
-    <form action="otp.php" method="post"> 
+    <form action="../Controller/sendOtp.php" method="post"> 
     <section id="otp-verification">
       <h2>Enter OTP</h2>
       <input
         type="text"
         id="verify_OTP"
+        name = "verify_OTP"
         placeholder="Enter OTP"
         class="input-box"
       />
-      <button type = "submit" class="btn">Verify</button>
-      <button class="btn"><a href="signUp.php">Resend OTP</a></button>
-      <p id="errorMessage_OTP" style="color: red; display: none;"></p>
+      <p id="errorMessage" style="color: red; <?php echo (!isset($_SESSION['errorVerify'])) ? 'display: none;' : ''; ?>">
+    <?php
+    if (isset($_SESSION['errorVerify'])) {
+        echo htmlspecialchars($_SESSION['errorVerify']);
+        unset($_SESSION['errorVerify']);
+    }
+    ?>
+    </p>
+      <button type="submit" name="action" value="verify" class="btn">Verify</button>
+    <button type="submit" name="action" value="resend" class="btn">Resend OTP</button>
     </section>
     </form>
     <?php include 'footer.html'; ?>
