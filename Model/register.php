@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include_once 'create.php';
   require_once 'query.php';
   $table_name = "userinfo";
@@ -7,9 +8,10 @@
 
   $name = $_POST['Name'];
   $phone = $_POST['Phone'];
-  $email = "sazzad53913@gmail.com";
+  $email = $_SESSION['email'];
   $nid = $_POST['NID'];
   $password = $_POST['password'];
+  unset($_SESSION['email']);
 
   //Database connection
   $conn = new mysqli('localhost','root','','ekseat_com');
