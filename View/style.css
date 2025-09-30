@@ -240,3 +240,89 @@ footer {
   /* font-size: 14px; */
   color: #fff;
 }
+
+
+
+/*.........slideshow..........*/
+
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; margin: 0; }
+
+.slideshow-container {
+  max-width: 1500px;
+  height: 500px; /* Fixed height */
+  position: relative;
+  margin: 150px 1200px 0 50px; /* Add top and left space of image */
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 500px; /* Fixed height */
+  object-fit: cover;
+
+}
+
+/* Caption text */
+.text {
+  color: #fff;
+  font-size: 18px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.5);
+  border-radius: 5px;
+}
+
+/* Dots */
+/*.dot-container {
+  text-align: center; 
+  text-align: left;
+  padding:10px;
+  background: #f2f2f2;
+}*/
+
+/*.dot-container {
+  position: absolute;
+  left: 400px;
+  bottom: 500px;         
+  transform: translateX(-50%);
+  background: none;     
+  padding: 0;           
+  text-align: center;   
+  width: 100%;
+  z-index: 2;
+}*/
+
+.dot-container {
+  position: absolute;
+  bottom: 400px;
+  left: 55%;
+  transform: translateX(-50%);
+  background: transparent; /* remove gray background */
+  width: 100%;
+}
+
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #676565;
+}
+

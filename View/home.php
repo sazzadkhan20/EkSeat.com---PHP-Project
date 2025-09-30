@@ -1,4 +1,5 @@
 <?php include_once 'nevigationBar.html';?>
+<?php include 'slideShow.html'; ?>
  
 <!DOCTYPE html>
 <html lang="en">
@@ -11,10 +12,11 @@
 <body>
     <main>
         <section>
-            <h2>Home Page</h2>
+            <!-- <h2>Home Page</h2> -->
             <p>EkSeat.com is your go-to platform for all your seating needs.</p>
         </section>
     </main>
+   
    <?php include 'footer.html'; ?>
    
 </body>
