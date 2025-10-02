@@ -19,8 +19,9 @@
     <title>Sign Up</title>
   </head>
   <body>
-    <form action="../Model/emailVerify.php" method="post">
     <section id="signup">
+    <form action="../Model/emailVerify.php" method="post">
+    
       <img src="Resources/logo2.jpg" alt="Logo" class="box-logo" />
       <!-- Email input -->
       <input type="text" id="email" name = 'email' placeholder="Enter your email/phone" class="input-box" />
@@ -34,8 +35,9 @@
     </p>
       <!-- Verify button -->
       <button class="btn" type="submit">Send OTP</button>
-    </section>
+    
     </form>
-   <?php include 'footer.html'; ?>
+    </section>
+   <footer><?php include 'footer.html'; ?></footer>
   </body>
 </html>
