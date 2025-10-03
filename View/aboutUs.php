@@ -9,11 +9,11 @@
 </head>
 <body>
     <main>
-    <section>
             <h2>About us Page</h2>
             <p>EkSeat.com is your go-to platform for all your seating needs.</p>
-        </section>
+
     </main>
-    <?php include 'footer.html'; ?>
+
+    <footer><?php include 'footer.html'; ?></footer>
 </body>
 </html>
