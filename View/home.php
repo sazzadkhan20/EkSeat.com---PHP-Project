@@ -15,6 +15,8 @@
             <td style="width: 70%;">
                  <?php include 'slideShow.html'; ?>
             </td>
+        </tr>
+        <tr>
             <td style="width: 30%;">
                 <p>EkSeat.com is your go-to platform for all your seating needs.</p>
             </td>

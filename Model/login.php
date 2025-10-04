@@ -13,7 +13,7 @@
     if ($row = $result->fetch_assoc()) 
     {
         if ($row['uPassword'] === $password)
-            header("Location: ../View/home.php");
+            header("Location: ../View/userHome.php");
         else
         {
             $_SESSION['errorSignIn'] = "Invalid Password";
