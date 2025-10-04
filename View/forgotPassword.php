@@ -15,7 +15,7 @@
       <input type="password" name="newpassword" placeholder="New Password" class="input-box" required/>
       <input type="password" name="confirmpassword" placeholder="Confirm Password" class="input-box" required/>
 
-      <button type="submit" class="Fbtn">Confirm</button>
+      <button type="submit" class="btn">Confirm</button>
     </form>
   </section>
 
