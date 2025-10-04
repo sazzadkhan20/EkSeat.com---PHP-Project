@@ -12,7 +12,7 @@
     <main>
        <table style="padding: 80px 20px 20px 50px;">
         <tr>
-            <td style="padding-right: 150px;">
+            <td style="padding-right: 149px;">
                 <h2>Enjoy your ride with EkSeat.com</h2>
                 <form action="">
                     <select name="pickup_location" id="pickup_location" class="input-box">
