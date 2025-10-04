@@ -19,7 +19,7 @@
     <title>Sign Up</title>
   </head>
   <body>
-    <section id="signup">
+    <div id="signup">
     <form action="../Model/emailVerify.php" method="post">
     
       <img src="Resources/logo2.jpg" alt="Logo" class="box-logo" />
@@ -37,7 +37,7 @@
       <button class="btn" type="submit">Send OTP</button>
     
     </form>
-    </section>
+    </div>
    <footer><?php include 'footer.html'; ?></footer>
   </body>
 </html>

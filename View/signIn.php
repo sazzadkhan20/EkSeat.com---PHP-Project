@@ -12,8 +12,8 @@
 </head>
 
 <body>
-  <section>
-    <form action = "../Model/login.php" method = "POST" id = "login">
+  <div >
+    <form action = "../Model/login.php" method = "POST" id = "signin">
     <img src="Resources/logo2.jpg" alt="Logo1" class="box-logo" />
 
       <input type="text" name="email" placeholder="email/phone" class="input-box" required/>
@@ -31,7 +31,7 @@
       <a href="signUp.php?action=forgot" class="forgot">Forgot Password?</a><br />
       <small>Don't have an account? <a href="signUp.php?action=signup">Sign up</a></small>
     </form>
-  </section>
+  </div>
  <?php include 'footer.html'; ?>
 </body>
 

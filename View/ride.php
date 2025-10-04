@@ -9,7 +9,7 @@
 </head>
 <body>
     <main>
-         <table>
+         <table id="rideTable">
             <tr>
                 <td id="Location_Navigation" style="padding: 50px 20px;">
                     <h2>Set Your Location</h2>
@@ -30,11 +30,11 @@
                     <table>
                         <tr>
                             <td><input type="radio" id="car" name="vehicle_type" value="car">
-                                <label for="car"><img src="Resources/carIcon.png" alt="Car Icon" class="box-logo" /></label></td>
+                                <label for="car">Car</label></td>
                             <td><input type="radio" id="bike" name="vehicle_type" value="bike">
-                                <label for="bike"><img src="Resources/bikeIcon.png" alt="Bike Icon" class="box-logo" /></label></td>
+                                <label for="bike">Bike</label></td>
                             <td><input type="radio" id="bus" name="vehicle_type" value="bus">
-                                <label for="bus"><img src="Resources/Micro_busIcon.png" alt="Micro Bus Icon" class="box-logo" /></label></td>
+                                <label for="bus">Micro Bus </label></td>
                         </tr>
                     </table>
                     <br>
