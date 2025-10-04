@@ -11,7 +11,7 @@
     <main>
          <table id="rideTable">
             <tr>
-                <td id="Location_Navigation" style="padding: 50px 20px;">
+                <td id="Location_Navigation" style="padding: 50px 100px;">
                     <h2>Set Your Location</h2>
                     <select name="pickup_location" id="pickup_location" class="input-box">
                         <option value="" disabled selected>Select Pickup Location</option>
