@@ -9,10 +9,11 @@
 </head>
 <body>
     <main>
-         <table id="rideTable">
-            <tr>
-                <td id="Location_Navigation" style="padding: 50px 100px;">
-                    <h2>Set Your Location</h2>
+         <table style="padding: 80px 20px 20px 50px;">
+        <tr>
+            <td style="padding-right: 150px;">
+                <h2>Enjoy your ride with EkSeat.com</h2>
+                <form action="">
                     <select name="pickup_location" id="pickup_location" class="input-box">
                         <option value="" disabled selected>Select Pickup Location</option>
                         <option value="location1">Location 1</option>
@@ -26,27 +27,19 @@
                         <option value="locationB">Location B</option>
                         <option value="locationC">Location C</option>   
                     </select>
-                    <label for="Vehicle_Type">Select Vehicle Type:</label>
-                    <table>
-                        <tr>
-                            <td><input type="radio" id="car" name="vehicle_type" value="car">
-                                <label for="car">Car</label></td>
-                            <td><input type="radio" id="bike" name="vehicle_type" value="bike">
-                                <label for="bike">Bike</label></td>
-                            <td><input type="radio" id="bus" name="vehicle_type" value="bus">
-                                <label for="bus">Micro Bus </label></td>
-                        </tr>
-                    </table>
                     <br>
-                    
                     <button class="btn">Search Ride</button>
-                </td>
-                <td id="Map_Display">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509949!2d144.9537353153165!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f5b5%3A0x5045675218ceed30!2sMelbourne%20CBD%2C%20Victoria%2C%20Australia!5e0!3m2!1sen!2sus!4v1616161616161!5m2!1sen!2sus  " frameborder="0" height="450px" width="800px"></iframe>
-                </td>
-            </tr>
-        </table>
+                </form>
+            </td>
+            <td style="padding-left: 150px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509949!2d144.9537353153165!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f5b5%3A0x5045675218ceed30!2sMelbourne%20CBD%2C%20Victoria%2C%20Australia!5e0!3m2!1sen!2sus!4v1616161616161!5m2!1sen!2sus" frameborder="0" height="600px" width="600px"></iframe>
+            </td>
+        </tr>
+       </table>
     </main>
     <?php include 'footer.html'; ?>
 </body>
 </html>
+
+
+                
