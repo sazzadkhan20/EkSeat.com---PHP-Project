@@ -129,6 +129,14 @@ a {
   text-decoration: underline;
 }
 
+.forgot{
+  color: #ffffff;
+}
+.forgot:hover {
+  color: #305b99; 
+  text-decoration: underline;
+}
+
 #rideTable {
   margin: 100px 0px;
 }
