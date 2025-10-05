@@ -11,7 +11,7 @@
     <main>
          <table style="padding: 80px 20px 20px 50px;">
         <tr>
-            <td>
+            <td style="width: 250px;">
                 <h2>Enjoy your ride with EkSeat.com</h2>
                 <form action="">
                     <select name="pickup_location" id="pickup_location" class="input-box">
@@ -33,7 +33,7 @@
             </td>
             <td style="padding-left: 50px;">
                 <iframe
-                    width="848"
+                    width="1048"
                     height="600"
                     style="border:0"
                     loading="lazy"

@@ -36,8 +36,12 @@
                 <?php include 'slideShow.html'; ?>
             </td>
         </tr>
-       </table>
+        </table>
+
         
+
+
+
     </main>
     
     
