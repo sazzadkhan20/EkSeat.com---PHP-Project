@@ -1,5 +1,9 @@
- <?php include_once 'nevigationBar.html';?>
- 
+
+<?php session_start();
+
+include_once 'nevigationBar.html';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,22 +18,13 @@
         <tr>
             <td style="padding-right: 149px;">
                 <h2>Enjoy your ride with EkSeat.com</h2>
-                <form action="">
-                    <select name="pickup_location" id="pickup_location" class="input-box">
-                        <option value="" disabled selected>Select Pickup Location</option>
-                        <option value="location1">Location 1</option>
-                        <option value="location2">Location 2</option>
-                        <option value="location3">Location 3</option>
-                    </select>
+                <form action="ride.php" method="post" onsubmit="return validateHomePageRequest()">
+                    <input type="text" id="pickup" placeholder="Enter pickup location" class="input-box">
                     <br>
-                    <select name="dropoff_location" id="dropoff_location" class="input-box">
-                        <option value="" disabled selected>Select Drop-off Location</option>
-                        <option value="locationA">Location A</option>
-                        <option value="locationB">Location B</option>
-                        <option value="locationC">Location C</option>   
-                    </select>
+                    <input type="text" id="dropOff" placeholder="Enter drop-off location" class="input-box">
                     <br>
-                    <button class="btn">Search Ride</button>
+                    <p id="error-message" style="color: red;"></p>
+                    <button class="btn" type="submit">Search Ride</button>
                 </form>
             </td>
             <td style="padding-left: 150px;">
@@ -37,14 +32,8 @@
             </td>
         </tr>
         </table>
-
-        
-
-
-
     </main>
-    
-    
     <?php include 'footer.html'; ?>
+    <script src="http://localhost/EkSeat.com---PHP-Project/Controller/rideValidation.js"></script>
 </body>
 </html>

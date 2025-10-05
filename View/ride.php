@@ -1,4 +1,5 @@
 <?php include_once 'nevigationBar.html'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,22 +14,32 @@
         <tr>
             <td style="width: 250px;">
                 <h2>Enjoy your ride with EkSeat.com</h2>
-                <form action="">
-                    <select name="pickup_location" id="pickup_location" class="input-box">
-                        <option value="" disabled selected>Select Pickup Location</option>
-                        <option value="location1">Location 1</option>
-                        <option value="location2">Location 2</option>
-                        <option value="location3">Location 3</option>
+                <form method="POST" onsubmit="return validateSearchRide()">
+                    <input type="text" id="pickup" name="pickup" placeholder="Enter pickup location" class="input-box">
+                    <br>
+                    <input type="text" id="dropoff" name="dropoff" placeholder="Enter drop-off location" class="input-box">
+                    <br>
+                    <select name="schedule" id="schedule" class="input-box">
+                        <option value="" disabled selected>Pickup Time</option>
+                        <option value="now">Now</option>
+                        <option value="later">Later</option>
                     </select>
                     <br>
-                    <select name="dropoff_location" id="dropoff_location" class="input-box">
-                        <option value="" disabled selected>Select Drop-off Location</option>
-                        <option value="locationA">Location A</option>
-                        <option value="locationB">Location B</option>
-                        <option value="locationC">Location C</option>   
+                    <label for="time" id="time-label" style="display: none;">Select the date and time</label>
+                    <input type="datetime-local" id="time" name="time" class="input-box" style="display: none;">
+                    
+                    <select name="passenger" id="passenger" class="input-box">
+                        <option value="" disabled selected>Book for whom?</option>
+                        <option value="MySelf">Myself</option>
+                        <option value="SomeOneElse">Someone else</option>
                     </select>
+                    <input type="text" id="NewName" name="NewName" placeholder="Passenger Name" style="display:none;" class="input-box">
+                    
+                    <input type="text" id="NewPhone" name="NewPhone" placeholder="Passenger Phone" style="display:none;" class="input-box">
+
                     <br>
-                    <button class="btn">Search Ride</button>
+                    <p id="error-message" style="color: red;"></p>
+                    <input type="submit" value="Search Ride" class="btn">
                 </form>
             </td>
             <td style="padding-left: 50px;">
@@ -46,6 +57,7 @@
        </table>
     </main>
     <?php include 'footer.html'; ?>
+    <script src="http://localhost/EkSeat.com---PHP-Project/Controller/rideValidation.js"></script>
 </body>
 </html>
 
