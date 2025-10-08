@@ -20,6 +20,123 @@
             flex-direction: column;
         }
         
+        /* Initial state - centered search */
+        .initial-search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            padding: 150px;
+        }
+        
+        .centered-search-box {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 350px; 
+            max-width: 350px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .centered-search-box h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .centered-search-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .centered-input-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .centered-input-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+        
+        .centered-input-group input {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .centered-input-group input:focus {
+            outline: none;
+            border-color: #08293fff;
+            box-shadow: 0 0 0 3px rgba(8, 41, 63, 0.2);
+        }
+        
+        .centered-search-btn {
+            background: linear-gradient(to right, #08293fff, #2c3e50);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .centered-search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .centered-search-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Autocomplete dropdown styles */
+        .autocomplete-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 0 0 8px 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .autocomplete-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s;
+        }
+        
+        .autocomplete-item:hover {
+            background-color: #f5f7fa;
+        }
+        
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* After search - your original layout */
         .main-content {
             flex: 1;
             display: flex;
@@ -78,6 +195,7 @@
         .input-group {
             display: flex;
             flex-direction: column;
+            position: relative;
         }
         
         .input-group h3 {
@@ -160,8 +278,8 @@
         }
         
         .tab-btn.active {
-            color: #3498db;
-            border-bottom: 3px solid #3498db;
+            color: #364160;
+            border-bottom: 3px solid #364160;
         }
         
         .tab-content {
@@ -196,13 +314,13 @@
         }
         
         .ride-option:hover {
-            border-color: #3498db;
+            border-color: #364160;
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
         
         .ride-option.selected {
-            border-color: #3498db;
+            border-color: #364160;
             background: #f0f8ff;
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(52, 152, 219, 0.2);
@@ -216,8 +334,8 @@
         }
         
         .ride-type {
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 800;
             color: #2c3e50;
         }
         
@@ -283,7 +401,7 @@
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 25px;
-            border-left: 5px solid #3498db;
+            border-left: 5px solid #364160;
         }
         
         .distance-info h3 {
@@ -301,6 +419,11 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateX(20px); }
             to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         /* Footer styling */
@@ -372,30 +495,59 @@
                 padding: 15px 30px;
                 font-size: 16px;
             }
+            
+            .centered-search-box {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
     <?php include_once 'nevigationBar.html'; ?>
     
-    <div class="main-content">
+    <!-- Initial state - centered search box -->
+    <div class="initial-search-container" id="initialSearchContainer">
+        <div class="centered-search-box">
+            <h2>Get Your Ride</h2>
+            <div class="centered-search-form">
+                <div class="centered-input-group">
+                    <!-- <label for="initial-pickup">Pickup Location</label> -->
+                    <input type="text" id="initial-pickup" placeholder="Enter pickup location" autocomplete="off">
+                    <div class="autocomplete-dropdown" id="initial-pickup-dropdown"></div>
+                </div>
+                
+                <div class="centered-input-group">
+                    <!-- <label for="initial-destination">Destination</label> -->
+                    <input type="text" id="initial-destination" placeholder="Enter destination" autocomplete="off">
+                    <div class="autocomplete-dropdown" id="initial-destination-dropdown"></div>
+                </div>
+                
+                <button class="centered-search-btn" id="initialSearchBtn" disabled>Search Rides</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- After search - your original layout -->
+    <div class="main-content" id="mainContent" style="display: none;">
         <div class="container">
             <div class="content-wrapper">
                 <!-- Left Side - Fixed Search Box -->
                 <div class="search-container">
                     <div class="search-form">
                         <div class="input-group">
-                            <h3>Get a Ride</h3>
+                            <h3>Get Your Ride</h3>
                             <label for="pickup">Pickup Location</label>
-                            <input type="text" id="pickup" placeholder="Enter pickup location">
+                            <input type="text" id="pickup" placeholder="Enter pickup location" autocomplete="off">
+                            <div class="autocomplete-dropdown" id="pickup-dropdown"></div>
                         </div>
                         
                         <div class="input-group">
                             <label for="destination">Destination</label>
-                            <input type="text" id="destination" placeholder="Enter destination">
+                            <input type="text" id="destination" placeholder="Enter destination" autocomplete="off">
+                            <div class="autocomplete-dropdown" id="destination-dropdown"></div>
                         </div>
                         
-                        <button class="search-btn" id="searchBtn">Search Rides & Rentals</button>
+                        <button class="search-btn" id="searchBtn" disabled>Search Rides</button>
                     </div>
                     
                     <!-- Loading Indicator -->
@@ -418,13 +570,13 @@
                     
                     <!-- Tabs for Ride vs Rental -->
                     <!-- <div class="services-tabs">
-                        <button class="tab-btn active" onclick="showTab('ride')">🚗 Rides</button>
-                        <button class="tab-btn" onclick="showTab('rental')">📦 Rentals</button>
+                        <button class="tab-btn active" onclick="showTab('ride')"> Rides</button>
+                        <button class="tab-btn" onclick="showTab('rental')">Rentals</button>
                     </div> -->
                     
                     <!-- Ride Tab Content -->
                     <div id="ride-tab" class="tab-content active">
-                        <h3 class="tab-title">One-Way Rides</h3>
+                        <h3 class="tab-title">Choose a Ride</h3>
                         <div class="ride-options" id="rideOptions">
                             <!-- Ride options will be inserted here -->
                         </div>
@@ -449,7 +601,20 @@
         </div>
     </div>
 
+    <!-- Hidden form for data submission -->
+    <form id="bookingForm" action="../Model/bookingRide.php" method="POST" style="display: none;">
+        <input type="hidden" name="pickup" id="formPickup">
+        <input type="hidden" name="destination" id="formDestination">
+        <input type="hidden" name="distance" id="formDistance">
+        <input type="hidden" name="service_type" id="formServiceType">
+        <input type="hidden" name="vehicle_type" id="formVehicleType">
+        <input type="hidden" name="price" id="formPrice">
+        <input type="hidden" name="booking_type" id="formBookingType">
+    </form>
+    
     <script src="../Controller/graphDevelop_RideCalculation.js"></script>
+    <script src="rideBookTransition.js"></script>
+    <script src="locationSearch.js"></script>
     
     <!-- Footer at the bottom -->
     <?php include 'footer.html'; ?>
