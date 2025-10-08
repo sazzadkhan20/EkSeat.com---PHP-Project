@@ -201,8 +201,8 @@ function initAutocomplete(input, dropdown, key) {
             updateSearchButtonState();
 
             // Add visual indicator for selected location
-            input.style.borderColor = "#27ae60";
-            input.style.boxShadow = "0 0 0 3px rgba(39, 174, 96, 0.2)";
+            input.style.borderColor = "#2c394b";
+            //input.style.boxShadow = "0 0 0 3px rgba(39, 174, 96, 0.2)";
           });
           dropdown.appendChild(item);
         });
@@ -271,8 +271,8 @@ function initAutocomplete(input, dropdown, key) {
         dropdown.style.display = "none";
 
         // Add visual indicator for selected location
-        input.style.borderColor = "#27ae60";
-        input.style.boxShadow = "0 0 0 3px rgba(39, 174, 96, 0.2)";
+        input.style.borderColor = "#2c394b";
+        //input.style.boxShadow = "0 0 0 3px rgba(39, 174, 96, 0.2)";
 
         updateSearchButtonState();
       } else if (input.value && !selectedLocations[key]) {
@@ -357,8 +357,8 @@ function setLocationSelection(inputId, location) {
     selectedLocations[inputId] = location;
 
     // Add visual indicator
-    input.style.borderColor = "#27ae60";
-    input.style.boxShadow = "0 0 0 3px rgba(39, 174, 96, 0.2)";
+    input.style.borderColor = "#2c394b";
+    //input.style.boxShadow = "0 0 0 3px rgba(39, 174, 96, 0.2)";
 
     updateSearchButtonState();
     return true;
