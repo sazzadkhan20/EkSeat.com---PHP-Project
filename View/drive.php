@@ -1,4 +1,3 @@
-<?php include_once 'nevigationBar.html'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,7 @@
     <title>Drive</title>
 </head>
 <body>
+    <?php include_once 'nevigationBar.html'; ?>
     <main>
        
     </main>

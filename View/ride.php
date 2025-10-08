@@ -1,5 +1,3 @@
-<?php include_once 'nevigationBar.html'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -378,7 +376,7 @@
     </style>
 </head>
 <body>
-    <!-- Navigation is included at the top -->
+    <?php include_once 'nevigationBar.html'; ?>
     
     <div class="main-content">
         <div class="container">

@@ -1,7 +1,5 @@
 
 <?php session_start();
-
-include_once 'nevigationBar.html';
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +11,7 @@ include_once 'nevigationBar.html';
     <title>EkSeat.com</title>
 </head>
 <body>
+    <?php include_once 'nevigationBar.html'; ?>
     <main>
        <table style="padding: 80px 20px 20px 50px;">
         <tr>

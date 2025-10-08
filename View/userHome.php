@@ -1,5 +1,3 @@
- <?php include_once 'userNavBar.html';?>
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +7,7 @@
     <title>EkSeat.com</title>
 </head>
 <body>
+     <?php include 'userNavBar.html';?>
     <main>
        <table id="rideTable">
             <tr>
@@ -42,5 +41,11 @@
     
     
     <?php include 'footer.html'; ?>
+    <script src="userMenu.js"></script>
+    
+
+
+
+
 </body>
 </html>

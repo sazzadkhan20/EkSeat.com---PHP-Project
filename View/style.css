@@ -146,7 +146,7 @@ a {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
-  padding: 0 250px 0 250px;
+  padding: 0 50px 0 50px;
   box-sizing: border-box;
   position: fixed;
   top: 0;
@@ -162,7 +162,7 @@ a {
 #navbar_TD {
   color: white;
   text-align: center;
-  width: 200px;
+  width: 150px;
 }
 
 #signup_btn {
@@ -170,9 +170,11 @@ a {
   width: 60px;
   border: none;
   border-radius: 15px;
-  background-color: white;
+  background-color:none;
   font-size: 16px;
-}
+  cursor: pointer;
+} 
+
 
 
 #userButton,
@@ -380,4 +382,148 @@ footer {
   height: 50px;
   width: 200px;
   display:inline-block
+}
+
+
+/*.........user menu..........*/
+/* position the floating panel near the icon */
+.user-menu-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* the icon button */
+.icon-btn {
+  border: 0;
+  background: transparent;
+  padding: 6px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.icon-btn:focus-visible {
+  outline: 2px solid #222;
+}
+
+/* the panel look */
+.menu-panel {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 220px;
+  max-width: 85vw;
+  background: #e1e9f4;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+  padding: 16px;
+  z-index: 1000;
+
+  /* show/hide animation */
+  transform-origin: top right;
+  opacity: 0;
+  transform: scale(.98);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity .15s ease, transform .15s ease, visibility .15s;
+}
+
+/* when active (JS adds this class) */
+.menu-panel.open {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* header row */
+.menu-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 4px 4px 12px;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+}
+
+.name {
+  color: #172030;
+  font: 700 20px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+.sub {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* 3 tiles in a row */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 8px 0 14px;
+  align-content: center;
+  padding-top: 12px;
+  border-top: 1px solid #172030;
+}
+
+.tile {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 1px solid #f0f0f0;
+  background: #f1f1f1;
+  border-radius: 12px;
+  padding: 14px 8px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+}
+
+.tile:hover {
+  background: #304163;
+  color: #fff;
+}
+
+/* list area */
+.menu-list {
+  list-style: none;
+  padding: 10px 0 6px;
+  margin: 0;
+  border-top: 1px solid #172030;
+}
+
+.menu-list li a {
+  display: block;
+  padding: 10px 6px;
+  text-decoration: none;
+  background: #f1f1f1;
+  color: #111;
+  border-radius: 8px;
+}
+
+.menu-list li a:hover {
+  background: #304163;
+  color: #fff;
+}
+
+/* sign out button */
+.signout {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  padding: 10px 12px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  color: #e11d48;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.signout:hover {
+  background: #dd2121;
+  color: #fff;
 }
