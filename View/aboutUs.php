@@ -33,7 +33,7 @@
         </section>
     </main>
 
-    <footer style="background-color: #34495e; color: #fff; padding: 20px; text-align: center; font-size: 14px;">
+    <footer>
         <?php include 'footer.html'; ?>
     </footer>
 </body>
