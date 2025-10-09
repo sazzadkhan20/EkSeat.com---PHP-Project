@@ -21,7 +21,7 @@
             <img src="" alt="User picture" style="width: 52px; height: 52px" />
           </div>
           <div>
-            <div class="name">Saiful Islam Oni</div>
+            <div class="name"><?php echo $_COOKIE['user_name'] ?></div>
             <div class="sub">User</div>
           </div>
         </div>
@@ -41,4 +41,5 @@
       </div>
   </div>
   </nav>
+  <script src="userMenu.js"></script>
 </header>

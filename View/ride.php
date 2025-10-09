@@ -1,3 +1,19 @@
+<?php 
+session_start();
+require_once '../Model/checkCookie.php';
+
+// Check if user is logged in using cookies
+$isLoggedIn = checkAuthCookie();
+$userName = getUserFromCookie();
+
+
+// Dynamic navigation bar based on login status
+    if ($isLoggedIn) {
+        include_once 'userNavBar.php'; 
+    } else {
+        include_once 'nevigationBar.html';
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -503,7 +519,6 @@
     </style>
 </head>
 <body>
-    <?php include_once 'nevigationBar.html'; ?>
     
     <!-- Initial state - centered search box -->
     <div class="initial-search-container" id="initialSearchContainer">
