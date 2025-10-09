@@ -14,6 +14,8 @@
     {
         if ($row['uPassword'] === $password)
         {
+            //Set session variables
+            $_SESSION['user_email'] = $email;
             // Set cookies for 24 hours
             $login_time = time();
             $cookie_expiry = time() + (24 * 60 * 60); // 24 hours

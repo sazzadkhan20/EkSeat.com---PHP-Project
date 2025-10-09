@@ -37,7 +37,7 @@
           <li><a href="#">Drive &amp; deliver</a></li>
         </ul>
 
-        <a href="home.php" class="signout">Sign out</a>
+        <a href="../Model/logout.php" class="signout">Sign out</a>
       </div>
   </div>
   </nav>
