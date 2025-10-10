@@ -50,7 +50,7 @@
             <input type="hidden" name="user_type" value="driver">
 
             <div id="double_input">
-                <input type="text" id="Name2" placeholder="Name" name = "Name" class="input-box" required/>
+                <input  type="text" id="Name2" placeholder="Name" name = "Name" class="input-box" required/>
             </div>
  
             <div id="double_input">
