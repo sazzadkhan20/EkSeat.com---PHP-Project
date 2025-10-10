@@ -44,7 +44,10 @@ $userName = getUserFromCookie();
         </tr>
         </table>
     </main>
+    
+    <?php include 'suggestion.html'; ?>
     <?php include 'footer.html'; ?>
+    
     <script src="http://localhost/EkSeat.com---PHP-Project/Controller/rideValidation.js"></script>
 </body>
 </html>

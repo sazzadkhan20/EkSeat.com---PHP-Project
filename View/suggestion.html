@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EkSeat - Suggestions</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+ 
+.suggestions {
+  text-align: center;
+  padding: 40px 20px;
+}
+ 
+.suggestions h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+ 
+.card-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  table-layout: fixed;
+}
+ 
+.card-cell {
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 20px;
+  width: 25%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  vertical-align: top;
+}
+ 
+.card-cell:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+ 
+.card-cell img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+ 
+.card-cell h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+ 
+.card-cell p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+ 
+.card-cell button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+ 
+.card-cell button:hover {
+  background-color: #333;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header img {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.modal-body {
+  text-align: left;
+  line-height: 1.6;
+}
+
+.modal-body h3 {
+  color: #444;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-body ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-body li {
+  margin-bottom: 8px;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .card-table, .card-table tbody, .card-table tr, .card-table td {
+    display: block;
+    width: 100%;
+  }
+  .card-cell {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .modal-content {
+    width: 90%;
+    margin: 10% auto;
+    padding: 20px;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+</style>
+</head>
+<body>
+ 
+<section class="suggestions">
+<h2>Suggestions</h2>
+<table class="card-table">
+<tr>
+ <td class="card-cell">
+    <img src="Resources/ride.png" alt="Ride">
+    <h3>Ride</h3>
+    <p>Go anywhere with EkSeat. Request a ride, hop in, and go.</p>
+    <button onclick="openModal('rideModal')">Details</button>
+</td>
+ 
+<td class="card-cell">
+    <img src="Resources/rental.png" alt="Rentals">
+    <h3>Rentals</h3>
+    <p>Request a trip for a block of time and make multiple stops with EkSeat Rentals.</p>
+    <button onclick="openModal('rentalModal')">Details</button>
+</td>
+ 
+<td class="card-cell">
+    <img src="Resources/bike.png" alt="Bike">
+    <h3>Bike</h3>
+    <p>Get affordable motorbike rides in minutes at your doorstep with EkSeat Bike.</p>
+    <button onclick="openModal('bikeModal')">Details</button>
+</td>
+ 
+<td class="card-cell">
+    <img src="Resources/intercity.png" alt="Intercity">
+    <h3>Intercity</h3>
+    <p>Travel between cities conveniently and affordably with EkSeat Intercity.</p>
+    <button onclick="openModal('intercityModal')">Details</button>
+</td>
+</tr>
+</table>
+</section>
+
+<!-- Ride Modal -->
+<div id="rideModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('rideModal')">&times;</span>
+    <div class="modal-header">
+      <img src="Resources/logo2.jpg" alt="Ride">
+      <h2>EkSeat Ride</h2>
+    </div>
+    <div class="modal-body">
+      <p>EkSeat Ride offers convenient, affordable, and reliable transportation at your fingertips. Whether you're commuting to work, heading to the airport, or going out for the evening, EkSeat has you covered.</p>
+      
+      <h3>Key Features:</h3>
+      <ul>
+        <li>24/7 availability in all major cities</li>
+        <li>Multiple vehicle options to suit your needs</li>
+        <li>Real-time tracking and ETAs</li>
+        <li>Cashless and secure payments</li>
+        <li>Share trip details with friends and family</li>
+      </ul>
+      
+      <h3>How It Works:</h3>
+      <ol>
+        <li>Open the EkSeat app and set your destination</li>
+        <li>Choose your preferred vehicle type</li>
+        <li>Confirm your pickup location</li>
+        <li>Track your driver's arrival in real-time</li>
+        <li>Enjoy your ride and pay seamlessly through the app</li>
+      </ol>
+      
+      <p><strong>Pricing:</strong> Base fare starts at $2.50 + $1.50 per mile. Prices may vary based on demand and vehicle type.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Rental Modal -->
+<div id="rentalModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('rentalModal')">&times;</span>
+    <div class="modal-header">
+      <img src="Resources/logo2.jpg" alt="Rentals">
+      <h2>EkSeat Rentals</h2>
+    </div>
+    <div class="modal-body">
+      <p>EkSeat Rentals allows you to book a vehicle for a specific time period, perfect for when you need to make multiple stops or need transportation for several hours.</p>
+      
+      <h3>Key Features:</h3>
+      <ul>
+        <li>Book by the hour with no per-mile charges</li>
+        <li>Make unlimited stops during your rental period</li>
+        <li>Perfect for errands, shopping, or business meetings</li>
+        <li>Available in 1, 2, 4, and 8-hour blocks</li>
+        <li>Same professional drivers as our regular ride service</li>
+      </ul>
+      
+      <h3>Ideal For:</h3>
+      <ul>
+        <li>Running multiple errands in one trip</li>
+        <li>Business meetings across town</li>
+        <li>Shopping trips where you need to visit multiple stores</li>
+        <li>City tours and sightseeing</li>
+        <li>Any situation where you need a dedicated vehicle for a period of time</li>
+      </ul>
+      
+      <p><strong>Pricing:</strong> Starting at $25 for the first hour, with discounted rates for longer rentals.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Bike Modal -->
+<div id="bikeModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('bikeModal')">&times;</span>
+    <div class="modal-header">
+      <img src="Resources/logo2.jpg" alt="Bike">
+      <h2>EkSeat Bike</h2>
+    </div>
+    <div class="modal-body">
+      <p>EkSeat Bike offers fast, affordable motorcycle rides for when you need to beat traffic and get to your destination quickly. Our trained bike partners are ready to get you moving.</p>
+      
+      <h3>Key Features:</h3>
+      <ul>
+        <li>Fastest way through city traffic</li>
+        <li>Most affordable EkSeat option</li>
+        <li>Helmets provided for safety</li>
+        <li>Ideal for short to medium distances</li>
+        <li>Available in high-traffic urban areas</li>
+      </ul>
+      
+      <h3>Safety First:</h3>
+      <ul>
+        <li>All drivers are licensed and trained</li>
+        <li>Regular vehicle maintenance checks</li>
+        <li>GPS tracking for every trip</li>
+        <li>24/7 customer support</li>
+        <li>Insurance coverage for all rides</li>
+      </ul>
+      
+      <p><strong>Pricing:</strong> Base fare starts at $1.50 + $0.75 per mile. The most budget-friendly option for solo travelers.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Intercity Modal -->
+<div id="intercityModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('intercityModal')">&times;</span>
+    <div class="modal-header">
+      <img src="Resources/logo2.jpg" alt="Intercity">
+      <h2>EkSeat Intercity</h2>
+    </div>
+    <div class="modal-body">
+      <p>EkSeat Intercity connects cities with comfortable, reliable, and affordable transportation. Travel between urban centers without the hassle of bus stations or train schedules.</p>
+      
+      <h3>Key Features:</h3>
+      <ul>
+        <li>Travel between major cities and suburbs</li>
+        <li>Comfortable vehicles for longer journeys</li>
+        <li>Fixed pricing between city pairs</li>
+        <li>Multiple pickup and drop-off locations</li>
+        <li>Professional drivers familiar with intercity routes</li>
+      </ul>
+      
+      <h3>Popular Routes:</h3>
+      <ul>
+        <li>Downtown to suburban business districts</li>
+        <li>Airport transfers to neighboring cities</li>
+        <li>University towns to metropolitan areas</li>
+        <li>Weekend getaways to nearby tourist destinations</li>
+      </ul>
+      
+      <p><strong>Pricing:</strong> Fixed fares between city pairs starting at $35. Book in advance for the best rates.</p>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+// Function to open modal
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = "block";
+}
+
+// Function to close modal
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = "none";
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+  const modals = document.getElementsByClassName('modal');
+  for (let i = 0; i < modals.length; i++) {
+    if (event.target == modals[i]) {
+      modals[i].style.display = "none";
+    }
+  }
+}
+</script>
+</body>
+</html>
