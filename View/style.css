@@ -18,11 +18,16 @@ a {
   color: white;
 }
 
+#signin a {
+  text-decoration: none;
+  color: rgb(48, 85, 158);
+}
+
 /* The login box */
 #signin,
 #otp-verification {
   width: 250px;
-  height: 250px;
+  height: 260px;
   padding: 60px 30px 30px 30px;
   margin: 150px 0px;
   background: rgba(94, 145, 170, 0.2);

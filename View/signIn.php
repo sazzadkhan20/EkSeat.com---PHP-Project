@@ -18,7 +18,7 @@
 
       <input type="text" name="email" placeholder="email/phone" class="input-box" required/>
       <input type="password" name="password" placeholder="password" class="input-box" id="password" required/>
-            <div style="margin-top: 5px; margin-bottom: 10px;">
+            <div >
                 <input type="checkbox" id="showPasswordUser" style="margin-right:5px;">
                 <label for="showPasswordUser" style="font-size: 14px;">Show Password</label>
             </div>
@@ -33,8 +33,8 @@
     </p>
 
       <button type="submit" class="btn">Sign in</button><br/>
-      <a href="signUp.php?action=forgot" class="forgot">Forgot Password?</a><br />
-      <small>Don't have an account? <a href="signUp.php?action=signup">Sign up</a></small>
+      <a href="signUp.php?action=forgot" class="forgot"><b>Forgot Password?</b></a><br />
+      <small>Don't have an account? <a href="signUp.php?action=signup"><b>Sign up</b></a></small>
     </form>
   </div>
  <?php include 'footer.html'; ?>
