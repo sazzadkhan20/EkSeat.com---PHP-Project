@@ -20,14 +20,26 @@
         if ($row = $result->fetch_assoc()) 
         {
             $_SESSION['email'] = $email;
+            $_SESSION['user_type'] = "user";
             sendOTP();
             header("Location: ../View/verifyOtp.php");
         } 
         else 
         {
-            $_SESSION['errorSignUp'] = "E-mail/Phone not registered";
-            unsetSession('email');
-            header("Location: ../View/signUp.php");
+            $result = emailVerify($adqdriverinfotable, $email);
+            if ($row = $result->fetch_assoc()) 
+            {
+                $_SESSION['email'] = $email;
+                $_SESSION['user_type'] = "driver";
+                sendOTP();
+                header("Location: ../View/verifyOtp.php");
+            } 
+            else
+            {
+                $_SESSION['errorSignUp'] = "E-mail/Phone not registered";
+                unsetSession('email');
+                header("Location: ../View/signUp.php");
+            }
         }
     }
     else

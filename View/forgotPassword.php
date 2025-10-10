@@ -25,7 +25,7 @@ $userName = getUserFromCookie();
   </head>
   <body>
     <section class="forgetPassword">
-    <form action = "" method = "POST" id = "forgetPassword">
+    <form action = "../Model/resetPassword.php" method = "POST" id = "forgetPassword">
     <img src="Resources/logo2.jpg" alt="Logo1" class="box-logo" />
 
       <input type="password" name="newpassword" placeholder="New Password" class="input-box" required/>

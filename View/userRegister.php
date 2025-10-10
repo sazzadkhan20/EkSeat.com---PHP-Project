@@ -16,13 +16,16 @@
 
     <div id="user_Registration" style="display:none;">
         <form action="../Model/register.php" id="register_User" method="post" onsubmit="return ValidateUserForm()">
-            
+
+            <!-- Hidden field to identify user type -->
+            <input type="hidden" name="user_type" value="user">
+
             <div id="double_input">
                 <input type="text" id="Name" name = "Name" placeholder="Name" class="input-box" required/>
             </div>
             
             <div id="double_input">                
-                <input type="number" id="Phone"name = "Phone"  placeholder="Phone" class="input-box" required/>
+                <input type="number" id="Phone" name = "Phone"  placeholder="Phone" class="input-box" required/>
                 <input type="text" id="NID" name = "NID" placeholder="NID" class="input-box" required/>
             </div>
 
@@ -41,19 +44,22 @@
     </div>  
     
     <div id="driver_Registration" style="display:none;">
-        <form action="" id="register_Driver" method="post" onsubmit="return validateDriverForm()">
+        <form action="../Model/register.php" id="register_Driver" method="post" onsubmit="return validateDriverForm()">
         
+            <!-- Hidden field to identify user type -->
+            <input type="hidden" name="user_type" value="driver">
+
             <div id="double_input">
-                <input type="text" id="Name2" placeholder="Name" class="input-box" required/>
+                <input type="text" id="Name2" placeholder="Name" name = "Name" class="input-box" required/>
             </div>
  
             <div id="double_input">
-                <input type="text" id="Phone2" placeholder="Phone" class="input-box" required/>
-                <input type="number" id="NID2" placeholder="NID" class="input-box" required/>
+                <input type="text" id="Phone2" placeholder="Phone" name = "Phone" class="input-box" required/>
+                <input type="number" id="NID2" placeholder="NID" name = "NID" class="input-box" required/>
             </div>
 
             <div id="double_input">
-                <input type="text" id="address" placeholder="Address" class="input-box" required/>
+                <input type="text" id="address" placeholder="Address" name="address" class="input-box" required/>
             </div>
                         
             <div id="double_input">
@@ -61,11 +67,11 @@
                     <option value="" disabled selected>Select Vehicle Type</option>
                     <option value="Car">Car</option>
                     <option value="Bike">Bike</option>
-                    <option value="CNG">Bus</option>
+                    <option value="CNG">CNG</option>
                 </select>
             </div>
             <div id="double_input">
-                <input type="password" id="password2" placeholder="Create a password" class="input-box" required/>
+                <input type="password" id="password2" placeholder="Create a password" name = "password" class="input-box" required/>
                 <input type="password" id="confirmPassword2" placeholder="Confirm your password" class="input-box" required/>
             </div>
             <div>

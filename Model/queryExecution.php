@@ -25,6 +25,25 @@
         $conn->close();
     }
 
+    function updateinfo($rquery,$condition,$email)
+    {
+        $conn = new mysqli('localhost','root','','ekseat_com');
+        if($conn->connect_error)
+            die('Connection Failed : '.$conn->connect_error);
+        else
+        {
+            $stmt = $conn->prepare($rquery);
+            if (!$stmt) {
+                die("Prepare failed: " . $conn->error);
+                exit();
+            }
+            $stmt->bind_param("ss", $condition, $email);
+            $stmt->execute();
+            $stmt->close();
+        }
+        $conn->close();
+    }
+
     function unsetSession($message)
     {
         if (isset($_SESSION[$message]))

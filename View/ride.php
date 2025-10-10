@@ -700,7 +700,7 @@ if ($isLoggedIn) {
     </script>
     <script src="../Controller/graphDevelop_RideCalculation.js"></script>
     <script src="rideBookTransition.js"></script>
-    <script src="locationSearch.js"></script>
+    <script src="../Controller/locationSearch.js"></script>
     <script src="authPopup.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
     // Query to fetch locations
-    $stmt = $pdo->query("SELECT main_loc FROM graph_connections ORDER BY main_loc ASC");
+    $stmt = $pdo->query("SELECT DISTINCT main_loc FROM graph_connections ORDER BY main_loc ASC");
     $locations = $stmt->fetchAll(PDO::FETCH_COLUMN);
     
     echo json_encode($locations);

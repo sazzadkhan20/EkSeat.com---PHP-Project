@@ -25,6 +25,7 @@
                         else 
                         {
                             unset($_SESSION['otp_action']);
+                            unset($_SESSION['user_type']);
                             header("Location: ../View/userRegister.php");
                         }
                     } 
@@ -39,7 +40,6 @@
             else
             {
                 require_once '../Model/queryExecution.php';
-
                 // Handle OTP resend
                 sendOTP();
                 header("Location: ../View/verifyOtp.php");
