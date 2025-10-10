@@ -9,12 +9,12 @@
 </head>
 <body>
     <div>
-       <center><h3 style="margin-bottom: 50px;">Select User Type</h3></center>
+       <center><h3 style="margin-bottom: 50px; margin-top: 60px;">Select User Type</h3></center>
         <button id="userButton"><img src="Resources/userIcon.png" alt="Logo1" class="box-logo" /></button>
         <button id="driverButton"> <img src="Resources/driverIcon.png" alt="Logo1" class="box-logo" /></button>
     </div>
 
-    <div id="user_Registration" style="display:none;">
+    <div id="user_Registration" style="display:none; margin-bottom: 50px;">
         <form action="../Model/register.php" id="register_User" method="post" onsubmit="return ValidateUserForm()">
 
             <!-- Hidden field to identify user type -->
@@ -48,7 +48,7 @@
 
     </div>  
     
-    <div id="driver_Registration" style="display:none;">
+    <div id="driver_Registration" style="display:none; margin-bottom: 50px;">
         <form action="../Model/register.php" id="register_Driver" method="post" onsubmit="return validateDriverForm()">
         
             <!-- Hidden field to identify user type -->

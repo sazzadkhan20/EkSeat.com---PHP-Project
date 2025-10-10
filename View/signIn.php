@@ -17,7 +17,12 @@
     <img src="Resources/logo2.jpg" alt="Logo1" class="box-logo" />
 
       <input type="text" name="email" placeholder="email/phone" class="input-box" required/>
-      <input type="password" name="password" placeholder="password" class="input-box" required/>
+      <input type="password" name="password" placeholder="password" class="input-box" id="password" required/>
+            <div style="margin-top: 5px; margin-bottom: 10px;">
+                <input type="checkbox" id="showPasswordUser" style="margin-right:5px;">
+                <label for="showPasswordUser" style="font-size: 14px;">Show Password</label>
+            </div>
+
       <p id="errorMessage" style="color: red; <?php echo (!isset($_SESSION['errorSignIn'])) ? 'display: none;' : ''; ?>">
     <?php
     if (isset($_SESSION['errorSignIn'])) {
@@ -33,6 +38,14 @@
     </form>
   </div>
  <?php include 'footer.html'; ?>
+
+ <script>
+  document.getElementById('showPasswordUser').addEventListener('change', function() {
+    const pwd = document.getElementById('password');
+    const type = this.checked ? 'text' : 'password';
+    pwd.type = type;
+});
+ </script>
 </body>
 
 </html>

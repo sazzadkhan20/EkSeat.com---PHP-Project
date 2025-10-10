@@ -51,11 +51,11 @@ a {
 
 #register_User {
   width: 600px;
-  height: 250px;
+  height: 300px;
   padding: 60px 30px 30px 30px;
   background: rgba(94, 145, 170, 0.2);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -65,11 +65,11 @@ a {
 
 #register_Driver {
   width: 600px;
-  height: 400px;
+  height: 450px;
   padding: 60px 30px 30px 30px;
   background: rgba(94, 145, 170, 0.2);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -201,6 +201,7 @@ a {
   background: none;
   border: none;
   position: relative;
+  cursor: pointer;
 }
 
 
