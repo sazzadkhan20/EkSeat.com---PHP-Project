@@ -30,10 +30,15 @@
             </div>
 
             <div id="double_input">
-                <input type="password" id="password" name = "password"  placeholder="Create a password" class="input-box" required/>
+                <input type="password" id="password" name="password" placeholder="Create a password" class="input-box" required/>
                 <input type="password" id="confirmPassword" placeholder="Confirm your password" class="input-box" required/>
-
             </div>
+            <!-- Show password checkbox for User -->
+            <div style="margin-top: 5px; margin-bottom: 10px;">
+                <input type="checkbox" id="showPasswordUser" style="margin-right:5px;">
+                <label for="showPasswordUser" style="font-size: 14px;">Show Password</label>
+            </div>
+
             <div>
                 <p id="errorMessage" style="color: red;"></p>
             </div>
@@ -71,9 +76,15 @@
                 </select>
             </div>
             <div id="double_input">
-                <input type="password" id="password2" placeholder="Create a password" name = "password" class="input-box" required/>
+                <input type="password" id="password2" placeholder="Create a password" name="password" class="input-box" required/>
                 <input type="password" id="confirmPassword2" placeholder="Confirm your password" class="input-box" required/>
             </div>
+            <!-- Show password checkbox for Driver -->
+            <div style="margin-top: 5px; margin-bottom: 10px;">
+                <input type="checkbox" id="showPasswordDriver" style="margin-right:5px;">
+                <label for="showPasswordDriver" style="font-size: 14px;">Show Password</label>
+            </div>
+
             <div>
                 <p id="errorMessage2" style="color: red;"></p>
             </div>

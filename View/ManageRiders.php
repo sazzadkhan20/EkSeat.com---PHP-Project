@@ -108,7 +108,6 @@ h1{
 }
 
 
-
   </style>
 
 </head>
@@ -121,8 +120,8 @@ h1{
   <body>
     <main>
       <!-- Main content goes here -->
-      <h1>View and Edit All User Information</h1>
       
+      <h1>View and Edit All Driver and Rider Information</h1>
 
       <section class="content-container">
           <div class="big-card">
