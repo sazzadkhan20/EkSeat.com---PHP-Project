@@ -7,7 +7,7 @@
     <title>EkSeat.com</title>
 </head>
 <body>
-     <?php include 'userNavBar.html';?>
+     <?php include 'userNavBar.php';?>
     <main>
        <table id="rideTable">
             <tr>

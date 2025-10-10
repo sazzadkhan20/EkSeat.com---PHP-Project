@@ -1,5 +1,18 @@
+<?php 
+session_start();
+require_once '../Model/checkCookie.php';
 
-<?php session_start();
+// Check if user is logged in using cookies
+$isLoggedIn = checkAuthCookie();
+$userName = getUserFromCookie();
+
+
+// Dynamic navigation bar based on login status
+    if ($isLoggedIn) {
+        include_once 'userNavBar.php'; 
+    } else {
+        include_once 'nevigationBar.html';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +24,6 @@
     <title>EkSeat.com</title>
 </head>
 <body>
-    <?php include_once 'nevigationBar.html'; ?>
     <main>
        <table style="padding: 80px 20px 20px 50px;">
         <tr>

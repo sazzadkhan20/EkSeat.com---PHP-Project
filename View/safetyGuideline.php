@@ -1,4 +1,19 @@
-   <?php include_once 'nevigationBar.html'; ?>
+<?php 
+session_start();
+require_once '../Model/checkCookie.php';
+
+// Check if user is logged in using cookies
+$isLoggedIn = checkAuthCookie();
+$userName = getUserFromCookie();
+
+
+// Dynamic navigation bar based on login status
+    if ($isLoggedIn) {
+        include_once 'userNavBar.php'; 
+    } else {
+        include_once 'nevigationBar.html';
+    }
+?>
     <div style="text-align: center; padding: 50px;">
         <h2>Safety Guidelines</h2>
         <p>At EkSeat.com, your safety is our top priority. Please follow these guidelines:</p>

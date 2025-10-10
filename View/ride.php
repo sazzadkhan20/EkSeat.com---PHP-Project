@@ -1,3 +1,18 @@
+<?php 
+session_start();
+require_once '../Model/checkCookie.php';
+
+// Check if user is logged in using cookies
+$isLoggedIn = checkAuthCookie();
+$userName = getUserFromCookie();
+
+// Dynamic navigation bar based on login status
+if ($isLoggedIn) {
+    include_once 'userNavBar.php'; 
+} else {
+    include_once 'nevigationBar.html';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -425,6 +440,76 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Popup Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 40px;
+            border-radius: 15px;
+            width: 450px;
+            max-width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            font-family: Arial, sans-serif;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .modal-message {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .continue-btn {
+            background: linear-gradient(to right, #08293fff, #2c3e50);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+
+        .blur-background {
+            filter: blur(5px);
+            pointer-events: none;
+            user-select: none;
+        }
         
         /* Footer styling */
         footer {
@@ -503,7 +588,16 @@
     </style>
 </head>
 <body>
-    <?php include_once 'nevigationBar.html'; ?>
+    <!-- Login Popup Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">Log in to see ride options</div>
+            <div class="modal-message">
+                Please take a moment to quickly log in or sign up so we can show you your ride options
+            </div>
+            <button class="continue-btn" id="continueBtn">Continue</button>
+        </div>
+    </div>
     
     <!-- Initial state - centered search box -->
     <div class="initial-search-container" id="initialSearchContainer">
@@ -511,13 +605,11 @@
             <h2>Get Your Ride</h2>
             <div class="centered-search-form">
                 <div class="centered-input-group">
-                    <!-- <label for="initial-pickup">Pickup Location</label> -->
                     <input type="text" id="initial-pickup" placeholder="Enter pickup location" autocomplete="off">
                     <div class="autocomplete-dropdown" id="initial-pickup-dropdown"></div>
                 </div>
                 
                 <div class="centered-input-group">
-                    <!-- <label for="initial-destination">Destination</label> -->
                     <input type="text" id="initial-destination" placeholder="Enter destination" autocomplete="off">
                     <div class="autocomplete-dropdown" id="initial-destination-dropdown"></div>
                 </div>
@@ -568,25 +660,11 @@
                         <p>From: <span id="fromLocation">-</span> to: <span id="toLocation">-</span></p>
                     </div>
                     
-                    <!-- Tabs for Ride vs Rental -->
-                    <!-- <div class="services-tabs">
-                        <button class="tab-btn active" onclick="showTab('ride')"> Rides</button>
-                        <button class="tab-btn" onclick="showTab('rental')">Rentals</button>
-                    </div> -->
-                    
                     <!-- Ride Tab Content -->
                     <div id="ride-tab" class="tab-content active">
                         <h3 class="tab-title">Choose a Ride</h3>
                         <div class="ride-options" id="rideOptions">
                             <!-- Ride options will be inserted here -->
-                        </div>
-                    </div>
-                    
-                    <!-- Rental Tab Content -->
-                    <div id="rental-tab" class="tab-content">
-                        <h3 class="tab-title">Rental Packages (Full Day - 8 Hours)</h3>
-                        <div class="ride-options" id="rentalOptions">
-                            <!-- Rental options will be inserted here -->
                         </div>
                     </div>
                     
@@ -612,11 +690,17 @@
         <input type="hidden" name="booking_type" id="formBookingType">
     </form>
     
+    <!-- Footer at the bottom -->
+    <?php include 'footer.html'; ?>
+
+    <!-- JavaScript Files -->
+    <script>
+        // Pass PHP variable to JavaScript
+        const isLoggedIn = <?php echo $isLoggedIn ? 'true' : 'false'; ?>;
+    </script>
     <script src="../Controller/graphDevelop_RideCalculation.js"></script>
     <script src="rideBookTransition.js"></script>
     <script src="locationSearch.js"></script>
-    
-    <!-- Footer at the bottom -->
-    <?php include 'footer.html'; ?>
+    <script src="authPopup.js"></script>
 </body>
 </html>
