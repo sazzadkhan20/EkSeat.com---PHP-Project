@@ -49,7 +49,7 @@
             else
             {
                 $_SESSION['errorSignIn'] = "Invalid Password";
-                header("Location: ../View/signIn.php");
+                 header("Location: ../View/signIn.php");
             }
         }
         else
