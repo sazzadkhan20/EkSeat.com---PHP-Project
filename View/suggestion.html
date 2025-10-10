@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EkSeat - Suggestions</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+.suggestions {
+  text-align: center;
+  padding: 40px 20px;
+}
+.suggestions h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+.card-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  table-layout: fixed; /* Added to ensure equal column widths */
+}
+.card-cell {
+  background: #b7d8dc;
+  border-radius: 12px;
+  padding: 20px;
+  width: 25%; /* Changed from 33.33% to 25% for 4 equal columns */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  vertical-align: top;
+}
+.card-cell:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.card-cell img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+.card-cell h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.card-cell p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+.card-cell button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.card-cell button:hover {
+  background-color: #333;
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+  .card-table, .card-table tbody, .card-table tr, .card-table td {
+    display: block;
+    width: 100%;
+  }
+  .card-cell {
+    margin-bottom: 20px;
+    width: 100%; /* Ensure full width on mobile */
+  }
+}
+</style>
+</head>
+<body>
+<section class="suggestions">
+<h2>Suggestions</h2>
+<table class="card-table">
+<tr>
+<td class="card-cell">
+<img src="Resources/ride.png" alt="Ride">
+<h3>Ride</h3>
+<p>Go anywhere with EkSeat. Request a ride, hop in, and go.</p>
+<button>Details</button>
+</td>
+
+<td class="card-cell">
+<img src="Resources/rental.png" alt="Rentals">
+<h3>Rentals</h3>
+<p>Request a trip for a block of time and make multiple stops with EkSeat Rentals.</p>
+<button>Details</button>
+</td>
+<td class="card-cell">
+<img src="Resources/bike.png" alt="Bike">
+<h3>Bike</h3>
+<p>Get affordable motorbike rides in minutes at your doorstep with EkSeat Bike.</p>
+<button>Details</button>
+</td>
+<td class="card-cell">
+<img src="Resources/intercity.png" alt="Intercity">
+<h3>Intercity</h3>
+<p>Travel between cities conveniently and affordably with EkSeat Intercity.</p>
+<button>Details</button>
+</td>
+</tr>
+</table>
+</section>
+</body>
+</html>
