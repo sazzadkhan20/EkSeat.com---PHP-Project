@@ -1,10 +1,112 @@
-<header>
-    <div id="navbar" style=" background: rgb(18,18,52);">
+<style>
+    /* Sidebar Styles */
+#sidebar {
+    background: rgb(18,18,52);
+    width: 250px;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0; /* Align to the left of the page */
+    padding-top: 20px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3); /* Optional: Adds shadow for a 3D effect */
+}
+
+/* Profile Section */
+#profile {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+}
+
+#profile-image {
+    margin-right: 10px;
+}
+
+#user-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#user-info h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+#user-info p {
+    margin: 5px 0 0;
+    font-size: 12px;
+}
+
+/* Navigation Links */
+#nav-links {
+    margin-top: 30px;
+}
+
+.nav-link {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Sign Up Button */
+#signup_btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+#signup_btn:hover {
+    background-color: #45a049;
+}
+</style>
+
+
+<aside>
+    <div id="sidebar">
+        <div id="profile">
+            <div id="profile-image">
+                <img src="Resources/admin.png" alt="User" id="user-icon" />
+            </div>
+            <div id="user-info">
+                <h4>Admin View Point</h4>
+                <p>admin@ekseat.com</p>
+            </div>
+        </div>
+        <div id="nav-links">
+            <a href="adminDashboard.php" class="nav-link">Dashboard</a>
+            <a href="ManageUsers.php" class="nav-link">Manage Users</a>
+            <a href="ManageRiders.php" class="nav-link">Manage Riders</a>
+            <a href="ManageRRoutes.php" class="nav-link">Manage Routes</a>
+        </div>
+    </div>
+</aside>
+
+
+
+<!-- <aside>
+    <div id="sidebar" style=" background: rgb(18,18,52);">
         <div>
             <a href="adminDashboard.php" id="nav_link"><img src="Resources/shortlogo.png" alt="Main Logo" id="Nav_Logo" /></a>
         </div>
-        <div id="navbar_TD"><a href="manage_Drive.php" id="nav_link">Drive</a></div>
-        <div id="navbar_TD"><a href="manage_Ride.php" id="nav_link">Ride</a></div>
+        <div id="navbar_TD"><a href="manage_Drive.php" id="nav_link">Manage Users</a></div>
+        <div id="navbar_TD"><a href="manage_Ride.php" id="nav_link">Manage Rides</a></div>
+        
         <div id="navbar_TD">
             <a href="aboutUs.php" id="nav_link">About Us</a>
         </div>
@@ -18,4 +120,4 @@
 
     </div>
     </nav>
-</header>
+</aside> -->

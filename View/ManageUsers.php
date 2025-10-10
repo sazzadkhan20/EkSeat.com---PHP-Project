@@ -47,8 +47,8 @@
 .big-card {
   background-color: #e5e5e5ff;
     color: #000;
-    width: 550px;
-    height: 300px;
+    width: 1100px;
+    height: auto ;
     padding: 10px;
     border-radius: 8px;
     text-align: center;
@@ -86,7 +86,6 @@ th, td {
     padding: 5px;
     text-align: left;
     border: 1px solid #ddd;
-    font-size: 12px;
 }
 
 th {
@@ -103,22 +102,6 @@ a:hover {
     text-decoration: none;
 }
 
-.img-card {
-  background-color: #e5e5e5ff;
-    color: #000;
-    width: 550px;
-    padding: 10px;
-    height: auto;
-    border-radius: 8px;
-    text-align: center;
-    margin: 10px 0px 0px 50px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease-in-out;
-}
-.img-card:hover {
-    background: #d4d4d4ff;
-
-  }
 
   </style>
 
@@ -132,43 +115,15 @@ a:hover {
   <body>
     <main>
       <!-- Main content goes here -->
-      <section class="content-container">
-          <div class="card" >
-              <?php include_once '../Model/FetchNum_of_User.php'; ?>
-          </div>
-          <div class="card" >
-              <?php include_once '../Model/FetchNum_of_Riders.php'; ?>
-          </div>
-          <div class="card">
-              <h1>42</h1>
-              <p>Number of Rides</p>
-          </div>           
-      </section>
       
-      <section class="content-container">
-        <div class="img-card">
-              <h4>Current Month Revenue</h4>
-              <img src="Resources/adminPageGraph.png" alt="Revenue Graph" style="width:90%; height:auto; ">
-          </div>   
-          <div class="img-card">
-              <h4>Current Month Revenue</h4>
-              <img src="Resources/Profit-and-loss-graph.jpg" alt="Revenue Graph" style="width:90%; height:280px; ">
-          </div>  
-      </section>
+      
 
       <section class="content-container">
           <div class="big-card">
               <h4>Active Users</h4>
-              <a href="ManageUsers.php">📝Manage</a>
               <?php include_once '../Model/FetchAllUserInfo.php'; ?>
           </div>   
-      
-          <div class="big-card">
-              <h4>Active Riders</h4>
-              <small>[Currently Showing the User Table]</small>
-              <a href="ManageUsers.php">📝Manage</a>
-              <?php include_once '../Model/FetchAllRiderInfo.php'; ?>
-          </div>   
+        
       </section>
 
     </main> 
