@@ -18,7 +18,7 @@
 
       <input type="text" name="email" placeholder="email/phone" class="input-box" required/>
       <input type="password" name="password" placeholder="password" class="input-box" id="password" required/>
-            <div >
+            <div style="width: 100%; text-align: left; margin-bottom: 10px;">
                 <input type="checkbox" id="showPasswordUser" style="margin-right:5px;">
                 <label for="showPasswordUser" style="font-size: 14px;">Show Password</label>
             </div>

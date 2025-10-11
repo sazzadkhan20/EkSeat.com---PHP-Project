@@ -13,12 +13,6 @@ function ValidateUserForm() {
     errorEl.textContent = "All fields are required.";
     return false;
   }
-  // ✅ Password strength check
-  if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/)) {
-    errorEl.textContent = "Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.";
-    return false;
-  }
-
   if (password !== confirmPassword) {
     errorEl.textContent = "Passwords do not match.";
     return false;
@@ -28,6 +22,12 @@ function ValidateUserForm() {
     errorEl.textContent = "Password must be at least 8 characters long.";
     return false;
   }
+    // ✅ Password strength check
+  if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/)) {
+    errorEl.textContent = "Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.";
+    return false;
+  }
+
 
   // BD mobile: 11 digits starting with 01 and next digit 3–9
   if (!/^(01)[3-9]\d{8}$/.test(phone)) {

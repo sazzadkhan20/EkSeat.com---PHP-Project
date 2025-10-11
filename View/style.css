@@ -136,10 +136,6 @@ a {
   align-items: center;
 }
 
-.forgetPassword:hover {
-  text-decoration: underline;
-}
-
 #rideTable {
   margin: 100px 0px;
 }

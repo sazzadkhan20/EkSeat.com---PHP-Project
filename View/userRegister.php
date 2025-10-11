@@ -34,7 +34,7 @@
                 <input type="password" id="confirmPassword" placeholder="Confirm your password" class="input-box" required/>
             </div>
             <!-- Show password checkbox for User -->
-            <div style="margin-top: 5px; margin-bottom: 10px;">
+            <div style="margin-top: 5px; margin-bottom: 10px; width: 100%; text-align: left;">
                 <input type="checkbox" id="showPasswordUser" style="margin-right:5px;">
                 <label for="showPasswordUser" style="font-size: 14px;">Show Password</label>
             </div>
@@ -80,7 +80,7 @@
                 <input type="password" id="confirmPassword2" placeholder="Confirm your password" class="input-box" required/>
             </div>
             <!-- Show password checkbox for Driver -->
-            <div style="margin-top: 5px; margin-bottom: 10px;">
+            <div style="margin-top: 5px; margin-bottom: 10px; width: 100%; text-align: left;">
                 <input type="checkbox" id="showPasswordDriver" style="margin-right:5px;">
                 <label for="showPasswordDriver" style="font-size: 14px;">Show Password</label>
             </div>
