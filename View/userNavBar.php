@@ -32,7 +32,7 @@
         </div>
 
         <ul class="menu-list">
-          <li><a href="UserProfile.php">Manage account</a></li>
+          <li><a href="userProfile.php">Manage account</a></li>
           <li><a href="ride.php">Ride</a></li>
           <li><a href="drive.php">Drive &amp; deliver</a></li>
         </ul>

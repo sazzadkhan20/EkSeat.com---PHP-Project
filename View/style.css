@@ -330,8 +330,8 @@ footer {
 
 .mySlides {
   position: relative;
-  width: 100%;
-  height: clamp(220px, 40vw, 600px);
+  width: 500px;
+  height: clamp(220px, 40vw, 500px);
   display: none;
 }
 
