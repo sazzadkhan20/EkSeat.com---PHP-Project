@@ -25,17 +25,18 @@ $userName = getUserFromCookie();
 </head>
 <body>
     <main>
-       <table style="padding: 80px 20px 20px 50px;">
+       <table style="padding: 125px 20px 20px 100px;">
         <tr>
-            <td style="padding-right: 149px;">
-                <h2>Enjoy your ride with EkSeat.com</h2>
-                <form action="ride.php" method="post" onsubmit="return validateHomePageRequest()">
-                    <input type="text" id="pickup" placeholder="Enter pickup location" class="input-box">
+            <td style="padding-right: 100px; width:500px;">
+                <h1 style="font-size: 50px;">Worried to pay the whole fare?</h1>
+                <p >Enjoy your shared trip with reduced prices at EkSeat.com</p>
+                <form action="ride.php" method="post" onsubmit="return validateHomePageRequest()" style="margin: 50px 0px; width: 300px;">
+                    <input type="text" id="pickup" placeholder="Enter pickup location ᯓ➤" class="input-box">
                     <br>
-                    <input type="text" id="dropOff" placeholder="Enter drop-off location" class="input-box">
+                    <input type="text" id="dropOff" placeholder="Enter drop-off location 📍" class="input-box">
                     <br>
                     <p id="error-message" style="color: red;"></p>
-                    <button class="btn" type="submit">Search Ride</button>
+                    <button class="btn" type="submit">See Available Rides</button>
                 </form>
             </td>
             <td style="padding-left: 150px;">

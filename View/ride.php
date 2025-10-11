@@ -690,9 +690,7 @@ if ($isLoggedIn) {
         <input type="hidden" name="booking_type" id="formBookingType">
     </form>
     
-    <!-- Footer at the bottom -->
-    <?php include 'footer.html'; ?>
-
+    
     <!-- JavaScript Files -->
     <script>
         // Pass PHP variable to JavaScript
@@ -702,5 +700,8 @@ if ($isLoggedIn) {
     <script src="rideBookTransition.js"></script>
     <script src="../Controller/locationSearch.js"></script>
     <script src="authPopup.js"></script>
+
+    <!-- Footer at the bottom -->
+    <?php include 'footer.html'; ?>
 </body>
 </html>
