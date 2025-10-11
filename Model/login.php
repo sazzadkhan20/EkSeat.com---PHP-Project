@@ -25,6 +25,11 @@
             header("Location: ../View/home.php");
             exit();
         }
+        else
+        {
+            $_SESSION['errorSignIn'] = "Invalid Password";
+            header("Location: ../View/signIn.php");
+        }
     }
     else
     {
