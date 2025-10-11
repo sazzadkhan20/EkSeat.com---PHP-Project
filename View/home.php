@@ -45,6 +45,7 @@ $userName = getUserFromCookie();
         </table>
     </main>
     
+     <?php include 'imageHome.html'; ?>
     <?php include 'suggestion.html'; ?>
     <?php include 'footer.html'; ?>
     
