@@ -59,20 +59,29 @@
 
 .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.2);
+    
+    margin-left: 20px;
+    width: 70%;
 }
 
-/* Sign Up Button */
-#signup_btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    cursor: pointer;
+/* Logout Link */
+.nav_link_bold {
+    display: block;
+    color: #fc430f;
+    text-decoration: none;
+    width: 85%;
+    padding: 10px 20px;
+    margin-top: 300px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
 }
-
-#signup_btn:hover {
-    background-color: #45a049;
+.nav_link_bold:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: #fc430f;
+    margin-left: 20px;
+    width: 70%;
 }
 </style>
 
@@ -92,7 +101,8 @@
             <a href="adminDashboard.php" class="nav-link">Dashboard</a>
             <a href="ManageUsers.php" class="nav-link">Manage Users</a>
             <a href="ManageRiders.php" class="nav-link">Manage Riders</a>
-            <a href="ManageRRoutes.php" class="nav-link">Manage Routes</a>
+            <a href="ManageRoutes.php" class="nav-link">Manage Routes</a>
+            <a href="home.php" class="nav_link_bold">Logout</a>
         </div>
     </div>
 </aside>

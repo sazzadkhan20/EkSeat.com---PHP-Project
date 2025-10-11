@@ -9,12 +9,12 @@
 </head>
 <body>
     <div>
-       <center><h3 style="margin-bottom: 50px;">Select User Type</h3></center>
+       <center><h3 style="margin-bottom: 50px; margin-top: 60px;">Select User Type</h3></center>
         <button id="userButton"><img src="Resources/userIcon.png" alt="Logo1" class="box-logo" /></button>
         <button id="driverButton"> <img src="Resources/driverIcon.png" alt="Logo1" class="box-logo" /></button>
     </div>
 
-    <div id="user_Registration" style="display:none;">
+    <div id="user_Registration" style="display:none; margin-bottom: 50px;">
         <form action="../Model/register.php" id="register_User" method="post" onsubmit="return ValidateUserForm()">
 
             <!-- Hidden field to identify user type -->
@@ -30,10 +30,15 @@
             </div>
 
             <div id="double_input">
-                <input type="password" id="password" name = "password"  placeholder="Create a password" class="input-box" required/>
+                <input type="password" id="password" name="password" placeholder="Create a password" class="input-box" required/>
                 <input type="password" id="confirmPassword" placeholder="Confirm your password" class="input-box" required/>
-
             </div>
+            <!-- Show password checkbox for User -->
+            <div style="margin-top: 5px; margin-bottom: 10px;">
+                <input type="checkbox" id="showPasswordUser" style="margin-right:5px;">
+                <label for="showPasswordUser" style="font-size: 14px;">Show Password</label>
+            </div>
+
             <div>
                 <p id="errorMessage" style="color: red;"></p>
             </div>
@@ -43,7 +48,7 @@
 
     </div>  
     
-    <div id="driver_Registration" style="display:none;">
+    <div id="driver_Registration" style="display:none; margin-bottom: 50px;">
         <form action="../Model/register.php" id="register_Driver" method="post" onsubmit="return validateDriverForm()">
         
             <!-- Hidden field to identify user type -->
@@ -71,9 +76,15 @@
                 </select>
             </div>
             <div id="double_input">
-                <input type="password" id="password2" placeholder="Create a password" name = "password" class="input-box" required/>
+                <input type="password" id="password2" placeholder="Create a password" name="password" class="input-box" required/>
                 <input type="password" id="confirmPassword2" placeholder="Confirm your password" class="input-box" required/>
             </div>
+            <!-- Show password checkbox for Driver -->
+            <div style="margin-top: 5px; margin-bottom: 10px;">
+                <input type="checkbox" id="showPasswordDriver" style="margin-right:5px;">
+                <label for="showPasswordDriver" style="font-size: 14px;">Show Password</label>
+            </div>
+
             <div>
                 <p id="errorMessage2" style="color: red;"></p>
             </div>
