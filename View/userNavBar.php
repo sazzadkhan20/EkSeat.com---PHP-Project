@@ -5,6 +5,7 @@
     </div>
     <div id="navbar_TD"><a href="drive.php" id="nav_link">Drive</a></div>
     <div id="navbar_TD"><a href="ride.php" id="nav_link">Ride</a></div>
+    <div id="navbar_TD"><a href="ride.php" id="nav_link">Rentals</a></div>
     <div id="navbar_TD">
       <a href="aboutUs.php" id="nav_link">About Us</a>
     </div>
