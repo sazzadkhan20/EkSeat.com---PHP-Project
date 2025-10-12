@@ -17,7 +17,7 @@ if ($isLoggedIn) {
 <table style="width:100%; border-collapse: separate; border-spacing: 50px; padding: 50px;">
 <tr>
   <td style="text-align:center;">
-    <img src="Resources/ride1.png" alt="Top Image 1" height="400" width="500" style="border-radius: 10px;">
+    <img src="Resources/ride3.png" alt="Top Image 1" height="400" width="500" style="border-radius: 10px;">
   </td>
   <td style="text-align:center;">
     <img src="Resources/parcel.png" alt="Top Image 2" height="400" width="500" style="border-radius: 10px;">
