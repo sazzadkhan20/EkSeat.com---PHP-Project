@@ -41,7 +41,13 @@
     $adqdriverinfotable = "SELECT * FROM driverinfo WHERE dEmail = ? LIMIT 1";
     $adqridebookinghistorytable = "SELECT * FROM ridebookinghistory WHERE uEmail = ? ORDER BY rideDate DESC";
     $uquserinfotable = "UPDATE userinfo SET uPassword = ? WHERE uEmail = ?";
+    $uquserinfotableforname = "UPDATE userinfo SET uName = ? WHERE uEmail = ?";
+    $uquserinfotableforemail = "UPDATE userinfo SET uEmail = ? WHERE uEmail = ?";
+    $uquserinfotablefornid = "UPDATE userinfo SET uNID = ? WHERE uEmail = ?";
+    $uquserinfotableforaddress = "UPDATE userinfo SET uAddress = ? WHERE uEmail = ?";
+    $uquserinfotableforphone = "UPDATE userinfo SET uPhone = ? WHERE uEmail = ?";
     $uquserinfotableforpoints = "UPDATE userinfo SET uPoints = ? WHERE uEmail = ?";
+    $uquserinfotablefortransaction = "UPDATE userinfo SET uTransactionAmount = ? WHERE uEmail = ?";
     $uqdriverinfotable = "UPDATE driverinfo SET dPassword = ? WHERE dEmail = ?";
     $uqdriverinfotableforpoints = "UPDATE driverinfo SET dPoints = ? WHERE dEmail = ?";
 ?>

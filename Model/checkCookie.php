@@ -14,6 +14,12 @@ function checkAuthCookie() {
             setcookie("user_login", "", time() - 3600, "/");
             setcookie("login_time", "", time() - 3600, "/");
             setcookie("user_name", "", time() - 3600, "/");
+            setcookie("user_phone","", time() - 3600, "/");
+            setcookie("user_nid","", time() - 3600, "/");
+            setcookie("user_address","", time() - 3600, "/");
+            setcookie("user_totalTransaction","", time() - 3600, "/");
+            setcookie("user_registerDate","", time() - 3600, "/");
+            setcookie("user_points","", time() - 3600, "/");
             $isLoggedIn = false;
         } else {
             $isLoggedIn = true;

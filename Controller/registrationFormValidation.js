@@ -22,12 +22,12 @@ function ValidateUserForm() {
     errorEl.textContent = "Password must be at least 8 characters long.";
     return false;
   }
-    // ✅ Password strength check
+  // ✅ Password strength check
   if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/)) {
-    errorEl.textContent = "Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.";
+    errorEl.textContent =
+      "Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters.";
     return false;
   }
-
 
   // BD mobile: 11 digits starting with 01 and next digit 3–9
   if (!/^(01)[3-9]\d{8}$/.test(phone)) {
@@ -99,7 +99,7 @@ function validateDriverForm() {
     errorE2.textContent = "Please provide a valid NID (10 or 13 digits).";
     return false;
   }
-  
+
   return true;
 }
 
@@ -114,20 +114,23 @@ document.getElementById("driverButton").addEventListener("click", function () {
 });
 
 // User password toggle
-document.getElementById('showPasswordUser').addEventListener('change', function() {
-    const pwd = document.getElementById('password');
-    const confirmPwd = document.getElementById('confirmPassword');
-    const type = this.checked ? 'text' : 'password';
+document
+  .getElementById("showPasswordUser")
+  .addEventListener("change", function () {
+    const pwd = document.getElementById("password");
+    const confirmPwd = document.getElementById("confirmPassword");
+    const type = this.checked ? "text" : "password";
     pwd.type = type;
     confirmPwd.type = type;
-});
+  });
 
 // Driver password toggle
-document.getElementById('showPasswordDriver').addEventListener('change', function() {
-    const pwd = document.getElementById('password2');
-    const confirmPwd = document.getElementById('confirmPassword2');
-    const type = this.checked ? 'text' : 'password';
+document
+  .getElementById("showPasswordDriver")
+  .addEventListener("change", function () {
+    const pwd = document.getElementById("password2");
+    const confirmPwd = document.getElementById("confirmPassword2");
+    const type = this.checked ? "text" : "password";
     pwd.type = type;
     confirmPwd.type = type;
-});
-
+  });

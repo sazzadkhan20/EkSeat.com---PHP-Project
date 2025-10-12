@@ -584,7 +584,7 @@
                 <a href="ride.php">Rides</a>
                 <a href="userActivity.php">Activity</a>
                 <a href="#">Wallet</a>
-                <a href="#">Manage Account</a>
+                <a href="userProfile.php">Manage Account</a>
                 <a href="#">Help</a>
             </div>
             <div class="user-profile">

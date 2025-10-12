@@ -8,6 +8,11 @@
     db_create($dbname); //Database creation
     table_create($dbname,$table_name,$cquserinfotable); //table creation
 
+    // Helper function: if value is null, empty, or '-', store "N/A"
+    function valueOrNA($value) {
+        return (empty($value) || $value === '-' || $value === null) ? 'N/A' : $value;
+    }
+
     $email = $_POST['email'];
     $password = $_POST['password'];
     $result = emailVerify($adquserinfotable, $email);
@@ -23,7 +28,14 @@
             
             setcookie("user_login", $email, $cookie_expiry, "/");
             setcookie("login_time", $login_time, $cookie_expiry, "/");
-            setcookie("user_name", $row['uName'], $cookie_expiry, "/"); // User's display name
+            setcookie("user_name", $row['uName'], $cookie_expiry, "/");
+            setcookie("user_phone",$row['uPhone'], $cookie_expiry, "/");
+            setcookie("user_nid", $row['uNID'], $cookie_expiry, "/");
+            setcookie("user_address", valueOrNA($row['uAddress'] ?? ''), $cookie_expiry, "/");
+            setcookie("user_totalTransaction", $row['uTransactionAmount'], $cookie_expiry, "/");
+            setcookie("user_registerDate", $row['uregisterDate'], $cookie_expiry, "/");
+            setcookie("user_points", $row['uPoints'], $cookie_expiry, "/");
+
             header("Location: ../View/home.php");
             exit();
         }

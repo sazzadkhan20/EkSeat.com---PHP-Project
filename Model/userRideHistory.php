@@ -15,7 +15,7 @@
     $total_rides = 0;
     $total_spent = 0.0;
     $total_distance = 0.0;
-    $total_points = $user['uPoints'];
+    $total_points = $_COOKIE['user_points'];
     $has_rides = false;
 
     while($row = $rides_result->fetch_assoc()) {

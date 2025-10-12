@@ -38,10 +38,16 @@
         
         if ($stmt->execute()) 
         {
-            //update points for user 100
-            $result = emailVerify($adquserinfotable, $email);
-            if($row = $result->fetch_assoc())
-                updateinfo_for_int($uquserinfotableforpoints,(int)$row['uPoints']+100,$email);
+            //update points for user 100 and Transaction Amount update
+            $newPoints = (int)$_COOKIE['user_points'] + 100;
+            $newTransaction = (float)$_COOKIE['user_totalTransaction'] +(float)$rent; 
+            
+            // Update cookies in browser (valid)
+            setcookie("user_points", $newPoints, time() + 86400, "/");
+            setcookie("user_totalTransaction", $newTransaction, time() + 86400, "/");
+
+            updateinfo_for_int($uquserinfotableforpoints,$newPoints,$email);
+            updateinfo_for_float($uquserinfotablefortransaction,$newTransaction,$email);
             // Show success popup instead of redirecting immediately
             showSuccessPopup($pickup, $destination, $vehicle_type, $rent, $transactionID);
         } else {
