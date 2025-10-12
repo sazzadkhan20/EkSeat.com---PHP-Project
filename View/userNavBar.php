@@ -29,7 +29,7 @@
 
         <div class="menu-grid">
           <a href="#" class="tile">Wallet</a>
-          <a href="#" class="tile">Activity</a>
+          <a href="userActivity.php" class="tile">Activity</a>
         </div>
 
         <ul class="menu-list">

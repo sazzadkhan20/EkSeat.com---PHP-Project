@@ -644,7 +644,7 @@ if ($isLoggedIn) {
                     
                     <!-- Loading Indicator -->
                     <div class="loading hidden" id="loading">
-                        <p>Calculating best routes and prices...</p>
+                        <p>Finding best routes and prices...</p>
                         <div style="margin-top: 20px;">
                             <div style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; border: 3px solid #f3f3f3; border-top: 3px solid #3498db; animation: spin 1s linear infinite;"></div>
                         </div>
