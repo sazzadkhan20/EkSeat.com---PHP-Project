@@ -3,25 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saiful Islam Oni - Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <title>User Profile</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
         }
         
         .profile-header {
@@ -45,18 +34,34 @@
             font-weight: 500;
         }
         
+        .container {
+            width: 1500px;          /* ✅ Fixed width of the entire main window */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 300px 1fr;   /* ✅ Sidebar fixed, content flexible */
             gap: 30px;
+            margin-top: 50px;
         }
-        
+
         .sidebar {
-            background-color: white;
+            width: 300px;
+            background-color: rgba(181, 189, 215, 0.3);
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             padding: 25px;
         }
+
+        .profile-info {
+            display: grid;
+            grid-template-columns: 1fr;   /* ✅ One info per row inside content */
+            gap: 20px;
+        }
+
+
         
         .nav-menu {
             list-style: none;
@@ -88,7 +93,7 @@
         }
         
         .content {
-            background-color: white;
+            background-color: rgba(240, 240, 240, 0.5);
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             padding: 30px;
@@ -101,12 +106,8 @@
             color: #2c3e50;
             padding-bottom: 10px;
             border-bottom: 1px solid #eaeaea;
-        }
-        
-        .profile-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            display: inline-block;  
+            width: 900px;
         }
         
         .info-group {
@@ -116,16 +117,18 @@
         .info-label {
             font-size: 14px;
             color: #7f8c8d;
-            margin-bottom: 5px;
-            font-weight: 500;
+            margin-bottom: 3px;
+            font-weight: 600;
         }
-        
+
         .info-value {
             font-size: 16px;
             color: #2c3e50;
             font-weight: 500;
-            padding: 8px 0;
+            padding: 5px 0 10px 0;
+            border-bottom: 1px solid #eaeaea; /* optional separator */
         }
+
         
         .verified-badge {
             display: inline-flex;
@@ -161,21 +164,13 @@
             background-color: #2980b9;
         }
         
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .profile-info {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <?php include 'userNavBar.php'; ?>
+    </header>
     
     <div class="container">
         
@@ -202,6 +197,9 @@
             
             <div class="content">
                 <h2 class="section-title">Personal Information</h2>
+                <button class="edit-btn" onclick="window.location.href='editProfile.php'">
+                    <i class="fas fa-edit"></i> Edit Profile
+                </button>
                 
                 <div class="profile-info">
                     <div class="info-group">
@@ -226,7 +224,7 @@
                     
                     <div class="info-group">
                         <div class="info-label">Address</div>
-                        <div class="info-value">-</div>
+                        <div class="info-value">189/1 Amtola west Manikdi, Dhaka Cantontment, Dhaka 1206.</div>
                     </div>
                     
                     <div class="info-group">
@@ -234,12 +232,9 @@
                         <div class="info-value">2003-09-04</div>
                     </div>
                 </div>
-                
-                <button class="edit-btn">
-                    <i class="fas fa-edit"></i> Edit Profile
-                </button>
             </div>
         </div>
     </div>
+    <?php include_once 'footer.html'; ?>
 </body>
 </html>
