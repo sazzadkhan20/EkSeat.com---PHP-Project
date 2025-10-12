@@ -248,6 +248,13 @@
         .change-picture-btn i {
             margin-right: 5px;
         }
+        .errorMessage {
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        margin-top: 10px;
+        font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -266,7 +273,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="editProfile.php" class="nav-link active">
+                        <a href="editUserProfile.php" class="nav-link active">
                             <i class="fas fa-edit"></i> Edit Profile
                         </a>
                     </li>
@@ -276,7 +283,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="userActivity.php" class="nav-link">
                             <i class="fas fa-book-open"></i> Activity
                         </a>
                     </li>
@@ -302,32 +309,34 @@
                 
                 <h2 class="section-title">Edit Personal Information</h2>
 
-                <form action="updateUserInfoProcess.php" method="POST">
+                <form action="../Model/updateUserProfile.php" method="POST" onsubmit="return ValidateUserProfile()">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" value="Saiful Islam Oni" required>
+                        <input type="text" id="Name" name="Name" value= "<?php echo  $_COOKIE['user_name'] ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" value="saifulislamoni06@gmail.com" required>
+                        <input type="email" id="Email" name="Email" value="<?php echo $_COOKIE['user_login'] ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="text" id="phone" name="phone" value="01794272292" required>
+                        <input type="text" id="Phone" name="Phone" value="<?php echo $_COOKIE['user_phone'] ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="nid">NID</label>
-                        <input type="text" id="nid" name="nid" value="-">
+                        <input type="text" id="NID" name="NID" value="<?php echo $_COOKIE['user_nid'] ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <textarea id="address" name="address" required>189/1 Amtola west Manikdi, Dhaka Cantontment, Dhaka 1206.</textarea>
+                        <textarea id="Address" name="Address" ><?php echo $_COOKIE['user_address'] ?></textarea>
                     </div>
-
+                    <div>
+                        <p class = "errorMessage" id="errorMessage" style="color: red;"></p>
+                    </div>
                     <div class="form-actions">
                         <button type="button" class="btn btn-cancel" onclick="window.location.href='userProfile.php'">
                             <i class="fas fa-times"></i> Cancel
@@ -340,7 +349,7 @@
             </div>
         </div>
     </div>
-
+<script src="../Controller/userProfileEditValidation.js"></script>
     <?php include_once 'footer.html'; ?>
 </body>
 </html>

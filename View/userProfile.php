@@ -252,7 +252,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="editProfile.php" class="nav-link">
+                        <a href="editUserProfile.php" class="nav-link">
                             <i class="fas fa-edit"></i> Edit Profile
                         </a>
                     </li>
@@ -262,7 +262,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="userActivity.php" class="nav-link">
                             <i class="fas fa-book-open"></i> Activity
                         </a>
                     </li>
@@ -286,39 +286,39 @@
                 </div>
                 
                 <h2 class="section-title">Personal Information</h2>
-                <button class="edit-btn" onclick="window.location.href='editProfile.php'">
+                <button class="edit-btn" onclick="window.location.href='editUserProfile.php'">
                     <i class="fas fa-edit"></i> Edit Profile
                 </button>
                 
                 <div class="profile-info">
                     <div class="info-group">
                         <div class="info-label">Name</div>
-                        <div class="info-value">Saiful Islam Oni</div>
+                        <div class="info-value"><?php echo $_COOKIE['user_name'] ?></div>
                     </div>
                     
                     <div class="info-group">
                         <div class="info-label">Email</div>
-                        <div class="info-value">saifulislamoni06@gmail.com</div>
+                        <div class="info-value"><?php echo $_COOKIE['user_login'] ?></div>
                     </div>
                     
                     <div class="info-group">
                         <div class="info-label">Phone</div>
-                        <div class="info-value">01794272292</div>
+                        <div class="info-value"><?php echo $_COOKIE['user_phone'] ?></div>
                     </div>
                     
                     <div class="info-group">
                         <div class="info-label">NID</div>
-                        <div class="info-value">-</div>
+                        <div class="info-value"><?php echo $_COOKIE['user_nid'] ?></div>
                     </div>
                     
                     <div class="info-group">
                         <div class="info-label">Address</div>
-                        <div class="info-value">189/1 Amtola west Manikdi, Dhaka Cantontment, Dhaka 1206.</div>
+                        <div class="info-value"><?php echo $_COOKIE['user_address'] ?></div>
                     </div>
                     
                     <div class="info-group">
                         <div class="info-label">Date of Registration</div>
-                        <div class="info-value">2003-09-04</div>
+                        <div class="info-value"><?php echo $_COOKIE['user_registerDate'] ?></div>
                     </div>
                 </div>
             </div>
