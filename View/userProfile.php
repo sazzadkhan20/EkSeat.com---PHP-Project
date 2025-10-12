@@ -61,7 +61,74 @@
             gap: 20px;
         }
 
-
+        /* Profile Picture Section */
+        .profile-picture-section {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .cover-photo {
+            height: 200px;
+            background-image: url('Resources/ProfileCover.png');
+            border-radius: 10px 10px 0 0;
+            position: relative;
+        }
+        
+        .profile-picture-container {
+            position: absolute;
+            bottom: -50px;
+            left: 30px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .profile-picture-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e9ecef;
+            color: #6c757d;
+            font-size: 40px;
+            border-radius: 50%;
+        }
+        
+        .change-picture-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #3498db;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .change-picture-btn:hover {
+            background-color: white;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
         
         .nav-menu {
             list-style: none;
@@ -165,6 +232,7 @@
         }
         
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -175,11 +243,17 @@
     <div class="container">
         
         <div class="main-content">
+            <!-- Sidebar -->
             <div class="sidebar">
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
+                        <a href="userProfile.php" class="nav-link active    ">
                             <i class="fas fa-user"></i> My Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="editProfile.php" class="nav-link">
+                            <i class="fas fa-edit"></i> Edit Profile
                         </a>
                     </li>
                     <li class="nav-item">
@@ -189,13 +263,28 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="fas fa-book-open"></i> Activity   
+                            <i class="fas fa-book-open"></i> Activity
                         </a>
                     </li>
                 </ul>
             </div>
             
             <div class="content">
+                <!-- Profile Picture Section -->
+                <div class="profile-picture-section">
+                    <div class="cover-photo"></div>
+                    <div class="profile-picture-container">
+                        <div class="profile-picture-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <!-- Uncomment below and remove the placeholder when user uploads a picture -->
+                        <!-- <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture"> -->
+                    </div>
+                    <button class="change-picture-btn">
+                        <i class="fas fa-camera"></i> Change Picture
+                    </button>
+                </div>
+                
                 <h2 class="section-title">Personal Information</h2>
                 <button class="edit-btn" onclick="window.location.href='editProfile.php'">
                     <i class="fas fa-edit"></i> Edit Profile

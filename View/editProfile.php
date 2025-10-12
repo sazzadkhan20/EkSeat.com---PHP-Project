@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit User Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
         * {
@@ -14,7 +15,7 @@
         }
 
         .container {
-            width: 1000px;
+            width: 1500px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -58,6 +59,11 @@
             color: #3498db;
         }
 
+        .nav-link i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
         .content {
             background-color: rgba(240, 240, 240, 0.5);
             border-radius: 10px;
@@ -72,6 +78,8 @@
             color: #2c3e50;
             padding-bottom: 10px;
             border-bottom: 1px solid #eaeaea;
+            display: inline-block;
+            width: 100%;
         }
 
         form {
@@ -94,37 +102,47 @@
         }
 
         input, textarea {
-            padding: 10px;
+            padding: 10px 15px;
             font-size: 16px;
-            border: 1px solid #ccc;
+            border: 1px solid #e1e4e8;
             border-radius: 6px;
             outline: none;
-            transition: border 0.2s ease;
+            transition: all 0.3s ease;
+            background-color: white;
         }
 
         input:focus, textarea:focus {
             border: 1px solid #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
         }
 
         textarea {
             resize: none;
             height: 80px;
+            font-family: inherit;
         }
 
         .form-actions {
             display: flex;
             justify-content: flex-end;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
         }
 
         .btn {
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: none;
             border-radius: 6px;
             font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            min-width: 140px;
         }
 
         .btn-save {
@@ -134,15 +152,101 @@
 
         .btn-save:hover {
             background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .btn-cancel {
-            background-color: #bdc3c7;
-            color: #2c3e50;
+            background-color: #e1e4e8;
+            color: #5a6c7d;
         }
 
         .btn-cancel:hover {
-            background-color: #95a5a6;
+            background-color: #d1d5da;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Fixed button icon and text alignment */
+        .btn i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        
+        /* Profile Picture Section for Edit Page */
+        .profile-picture-section {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .cover-photo {
+            height: 200px;
+            background-image: url('Resources/ProfileCover.png');
+            border-radius: 10px 10px 0 0;
+            position: relative;
+        }
+        
+        .profile-picture-container {
+            position: absolute;
+            bottom: -50px;
+            left: 30px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .profile-picture-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e9ecef;
+            color: #6c757d;
+            font-size: 40px;
+            border-radius: 50%;
+        }
+        
+        .change-picture-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #3498db;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .change-picture-btn:hover {
+            background-color: white;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .change-picture-btn i {
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -162,6 +266,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="editProfile.php" class="nav-link active">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fas fa-certificate"></i> Wallet
                         </a>
@@ -176,6 +285,21 @@
 
             <!-- Content -->
             <div class="content">
+                <!-- Profile Picture Section -->
+                <div class="profile-picture-section">
+                    <div class="cover-photo"></div>
+                    <div class="profile-picture-container">
+                        <div class="profile-picture-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <!-- Uncomment below and remove the placeholder when user uploads a picture -->
+                        <!-- <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture"> -->
+                    </div>
+                    <button type="button" class="change-picture-btn">
+                        <i class="fas fa-camera"></i> Change Picture
+                    </button>
+                </div>
+                
                 <h2 class="section-title">Edit Personal Information</h2>
 
                 <form action="updateUserInfoProcess.php" method="POST">
@@ -196,7 +320,7 @@
 
                     <div class="form-group">
                         <label for="nid">NID</label>
-                        <input type="text" id="nid" name="nid" value="-" >
+                        <input type="text" id="nid" name="nid" value="-">
                     </div>
 
                     <div class="form-group">
@@ -205,8 +329,12 @@
                     </div>
 
                     <div class="form-actions">
-                        <button type="button" class="btn btn-cancel" onclick="window.location.href='userProfile.php'">Cancel</button>
-                        <button type="submit" class="btn btn-save">Save Changes</button>
+                        <button type="button" class="btn btn-cancel" onclick="window.location.href='userProfile.php'">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                        <button type="submit" class="btn btn-save">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
                     </div>
                 </form>
             </div>
