@@ -129,18 +129,27 @@ section { padding: 50px 20px; }
 
 .join {
     text-align: center;
-    background: #a1c3c7ff;
-    padding: 50px;
+    background: #e7f1f2ff;
+    padding: 40px;  
+    margin: 20px auto 50px auto; 
 }
 
 .join .btn { 
-    background: #fff; 
-    color: #6b80aaff;
+    background: #285a81ff; 
+    color: #fff;
     padding: 10px 20px; 
     border-radius: 5px; 
     text-decoration: none; 
     font-weight: bold; 
 }
+
+.join .btn:hover { 
+    background: #02172e;
+     }
+
+     .join h2{
+        margin-top: 0px;
+     }
 </style>
 </head>
 
