@@ -515,6 +515,9 @@
                 <a href="driverHelp.php" class="nav-item">
                     <i class="fas fa-question-circle"></i> Help & Support
                 </a>
+                <a href="home.php" class="nav-item">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
             </div>
             
             <button class="status-toggle" id="statusToggle">
