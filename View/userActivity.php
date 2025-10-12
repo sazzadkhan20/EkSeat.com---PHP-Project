@@ -11,7 +11,7 @@
     }
 
     // Get user email (in real application, this would come from session/login)
-    $user_email = $_SESSION['user_email']; // Replace with actual user email from session
+    $user_email = $_COOKIE['user_login']; // Replace with actual user email from session
 
     // Fetch user data
     $user_sql = "SELECT * FROM userinfo WHERE uEmail = ?";

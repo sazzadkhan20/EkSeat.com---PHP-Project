@@ -1,6 +1,7 @@
 <?php
   session_start();
-  include_once 'create.php';
+  
+  require_once 'create.php';
   require_once 'query.php';
 
   db_create($dbname); //Database creation

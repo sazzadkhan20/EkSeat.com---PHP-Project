@@ -8,12 +8,13 @@
         header("Location: ../View/signUp.php");
         exit();
     }
-    include_once 'create.php';
+    require_once 'create.php';
     require_once 'query.php';
+    require_once 'queryExecution.php';
+    
     $table_name = "userinfo";
     db_create($dbname); //Database creation
     table_create($dbname,$table_name,$cquserinfotable); //table creation
-    require_once 'queryExecution.php';
     $result = emailVerify($adquserinfotable, $email);
     if($_SESSION['otp_action'] === "forgot")
     {
