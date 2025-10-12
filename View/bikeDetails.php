@@ -17,102 +17,201 @@ if ($isLoggedIn) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Details with Image Shadow Box</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EkSeat Bike Details</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 50px;
-      background-color: #f9f9f9;
+      background-color: #f7f9fb;
+      margin: 0;
+      padding: 0;
     }
 
- table {
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 60px 80px;
+      margin-top: 50px;
+    }
 
-}
+    .bike-image {
+      flex: 1;
+      min-width: 320px;
+      text-align: center;
+    }
 
-    /* td {
-       vertical-align: top;  
-      
-    } */
-
-   .details {
-  width: 60%;
-  padding-left: 100px;
-  /* margin-top: 20px; */
-}
-
-.details h2 {
-  text-align: center;
-  color: #304b66ff;
-  margin-top: 5%;
- 
-}
-
-    .image-box {
-  width: 30%;
-  text-align: left;
-  padding-left: 0;
-}
-
-    .shadow-box {
-      display: inline-block;
-      background-color: #c0dde6;
-      padding: 10px;
+    .bike-image img {
+      width: 100%;
+      max-width: 550px;
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     }
 
-    .shadow-box img {
-      border-radius: 10px;
-      width: 400px;
-      height: 300px;
+  .image-gallery {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 50px auto;        /* spacing above/below and centered */
+  max-width: 900px;         /* optional: prevent it from stretching too wide */
+  text-align: center;
+}
+.image-gallery img {
+  width: 180px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.image-gallery img:hover {
+  transform: scale(1.05);
+}
+
+
+    .bike-details {
+      flex: 1;
+      min-width: 320px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .bike-details h2 {
+      color: #0d3251ff;
+      margin-bottom: 10px;
+    }
+
+    .bike-details p {
+      line-height: 1.6;
+      color: #555;
+     
+    }
+
+    ul {
+      margin-top: 15px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .book-btn {
+      display: inline-block;
+      background-color: #0a0d32ff;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .book-btn:hover {
+      background-color: #03081fff;
+    }
+
+    .how-it-works {
+      text-align: center;
+      background-color: #fff;
+      padding: 50px 20px;
+      margin: 40px 0;
+    }
+
+    .how-it-works h2 {
+      color: #0d3251ff;
+      margin-bottom: 10px;
+    }
+
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .step {
+      background-color: #f2f7f3;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      width: 220px;
+      transition: 0.3s;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+    }
+
+    .step h3 {
+      color: #0d3251ff;
     }
   </style>
 </head>
 <body>
 
-  <table>
-    <tr>
-      <!-- Left side details -->
-      <td class="details">
-        <h2>Welcome to Our Service</h2>
-      <p>EkSeat Bike offers fast, affordable motorcycle rides for when you need to beat traffic and get to your destination quickly.</p>
-      <p>Our trained bike partners are ready to get you moving. Just book a ride through the EkSeat app, and you'll be on your way in minutes.</p>
-      
-      <h3>Key Features:</h3>
-      <ul>
-        <li>Fastest way through city traffic</li>
-        <li>Most affordable EkSeat option</li>
-        <li>Helmets provided for safety</li>
-        <li>Ideal for short to medium distances</li>
-        <li>Available in high-traffic urban areas</li>
-      </ul>
-      
-      <h3>Safety First:</h3>
-      <ul>
-        <li>All drivers are licensed and trained</li>
-        <li>Regular vehicle maintenance checks</li>
-        <li>GPS tracking for every trip</li>
-        <li>24/7 customer support</li>
-        <li>Insurance coverage for all rides</li>
-      </ul>
-      
-      <p><strong>Pricing:</strong> Base fare starts at Tk 50 + Tk 15 per km. The most budget-friendly option for solo travelers.</p>
-      </td>
+ <div class="container">
+  <div class="bike-image">
+    <img src="Resources/bike.png" alt="EkSeat Bike" />
+  </div>
 
-      <!-- Right side image in shadow box -->
-      <td class="image-box">
-        <div class="shadow-box">
-          <img src="Resources/bike.png" alt="Travel Image">
-        </div>
-      </td>
-    </tr>
-  </table>
+  <div class="bike-details">
+    <h2>EkSeat Bike Ride</h2>
+    <p>Fast, affordable motorcycle rides to beat city traffic and get to your destination quickly. Book now for a smooth, safe, and budget-friendly ride experience with trained drivers and regular vehicle maintenance.</p>
 
+    <ul>
+      <li>✅ Fastest way through city traffic</li>
+      <li>✅ Most affordable solo ride option</li>
+      <li>✅ Helmet provided for every trip</li>
+      <li>✅ 24/7 customer support</li>
+      <li>✅ GPS tracking for safety</li>
+    </ul>
+
+    <p><strong>Price:</strong> Starts at Tk 50 + Tk 15 per km</p>
+
+    <button class="book-btn" onclick="window.location.href='ride.php'">Book Now</button>
+  </div>
+</div>
+
+<!-- Image gallery OUTSIDE the container for full width -->
+<div class="image-gallery">
+  <img src="Resources/sidebike.png" alt="Bike Side View">
+  <img src="Resources/bike2.png" alt="Bike on Road">
+  <img src="Resources/helmet.png" alt="Helmet Safety">
+  <img src="Resources/urban.png" alt="Urban Ride">
+</div>
+
+
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>1. Book a Ride</h3>
+        <p>Enter your destination and confirm pickup location.</p>
+      </div>
+      <div class="step">
+        <h3>2. Get Matched</h3>
+        <p>We connect you with a nearby trained bike partner.</p>
+      </div>
+      <div class="step">
+        <h3>3. Ride Safely</h3>
+        <p>Track your trip and enjoy the journey.</p>
+      </div>
+      <div class="step">
+        <h3>4. Arrive & Pay</h3>
+        <p>Hop off and pay automatically through the app.</p>
+      </div>
+    </div>
+  </section>
 <?php include 'footer.html'; ?>
 </body>
 </html>
