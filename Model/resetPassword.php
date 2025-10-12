@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    
     require_once 'queryExecution.php';
     require_once 'query.php';
     

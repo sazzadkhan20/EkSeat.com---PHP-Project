@@ -2,8 +2,7 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-    session_start();
-    
+
     function emailVerify($rquery, $condition)
     {
         $conn = new mysqli('localhost','root','','ekseat_com');

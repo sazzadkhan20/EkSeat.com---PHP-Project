@@ -6,50 +6,47 @@ require_once '../Model/checkCookie.php';
 $isLoggedIn = checkAuthCookie();
 $userName = getUserFromCookie();
 
-
 // Dynamic navigation bar based on login status
-    if ($isLoggedIn) {
-        include_once 'userNavBar.php'; 
-    } else {
-        include_once 'nevigationBar.html';
-    }
+if ($isLoggedIn) {
+    include_once 'userNavBar.php'; 
+} else {
+    include_once 'nevigationBar.html';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Drive</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drive</title>
 
-     <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0; padding: 0;
-        line-height: 1.6;
-        color: #333;
-    }
-    h2 { text-align: center; margin: 40px 0 20px; font-size: 32px; }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+h2 { text-align: center; margin: 40px 0 20px; font-size: 32px; }
+
 .hero {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50px; /* space between image and text */
+    gap: 50px;
     padding: 50px 20px;
-    background: #f5f5f5; /* optional background color */
-    color: #333;
+    background: #f5f5f5;
 }
 
 .hero img {
-    width: 25%; /* adjust as needed */
-    height: auto;
+    width: 25%;
     border-radius: 10px;
     object-fit: cover;
     margin-top: 50px;
 }
 
 .hero-text {
-    width: 40%; /* adjust width as needed */
+    width: 40%;
     text-align: left;
 }
 
@@ -63,16 +60,90 @@ $userName = getUserFromCookie();
     margin-bottom: 20px;
 }
 
-    section { padding: 50px 20px; }
-    .benefits, .testimonials { background: #f9f9f9; }
-    .cards, .testimonial-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-    .card, .testimonial { background: #fff; border-radius: 10px; padding: 20px; width: 250px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); text-align: center; }
-    .card img, .testimonial img { width: 100%; border-radius: 10px; margin-bottom: 15px; }
-    ul { max-width: 500px; margin: 0 auto; padding-left: 20px; list-style: disc; }
-    .join { text-align: center; background: #FF5A5F; color: white; }
-    .join .btn { background: #fff; color: #FF5A5F; }
+.hero .btn {
+    background: #02172e;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+}
+
+
+section { padding: 50px 20px; }
+.benefits, .testimonials { background: #f9f9f9; }
+
+.cards, .testimonial-cards { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px;
+}
+
+.card, .testimonial { 
+    background: #fff; 
+    border-radius: 10px; 
+    padding: 20px; 
+    width: 250px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1); 
+    text-align: center;
+}
+
+.card img, .testimonial img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* New section: Testimonials + Requirements side by side */
+.testimonial-requirements {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    background: #f9f9f9;
+    padding: 60px 100px;
+}
+
+.testimonials {
+    flex: 1;
+}
+
+.requirements-text {
+    flex: 1;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.requirements-text h2 {
+    text-align: left;
+    margin-top: 0;
+}
+
+.requirements-text p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.join {
+    text-align: center;
+    background: #a1c3c7ff;
+    padding: 50px;
+}
+
+.join .btn { 
+    background: #fff; 
+    color: #6b80aaff;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
 </style>
 </head>
+
 <body>
 
 <!-- Hero Section -->
@@ -85,10 +156,9 @@ $userName = getUserFromCookie();
     </div>
 </header>
 
-
 <!-- Benefits Section -->
 <section class="benefits">
-    <h2>Why Drive with EkSeat</h2>
+    <h2>Why Drive with EkSeat.com</h2>
     <div class="cards">
         <div class="card">
             <img src="Resources/flexibleHours.png" alt="Flexible Hours">
@@ -130,37 +200,35 @@ $userName = getUserFromCookie();
     </div>
 </section>
 
-<!-- Requirements -->
-<section class="requirements">
-    <h2>Requirements</h2>
-    <ul>
-        <li>18+ years old, valid driving license</li>
-        <li>Registered vehicle (car, bike, or CNG)</li>
-        <li>Smartphone with internet access</li>
-    </ul>
-</section>
+<!-- Testimonials and Requirements Side by Side -->
+<section class="testimonial-requirements">
+    <div class="testimonials">
+        <h2>Driver Testimonials</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial">
+                <p>“EkSeat helped me earn on my own schedule.”</p>
+                <span>- Riyad, Chandpur</span>
+            </div>
+            <div class="testimonial">
+                <p>“Payments are fast, and I feel secure every trip.”</p>
+                <span>- Shamim, Dhaka</span>
+            </div>
+        </div>
+    </div>
 
-<!-- Testimonials -->
-<section class="testimonials">
-    <h2>Driver Testimonials</h2>
-    <div class="testimonial-cards">
-        <div class="testimonial">
-            <p>“EkSeat helped me earn on my own schedule.”</p>
-            <span>- Rahim, Dhaka</span>
-        </div>
-        <div class="testimonial">
-            <p>“Payments are fast, and I feel secure every trip.”</p>
-            <span>- Shamim, Chattogram</span>
-        </div>
+    <div class="requirements-text">
+        <h2>Requirements</h2>
+        <p>To become an EkSeat driver, you need to be at least 18 years old, hold a valid driving license, and own a registered vehicle (car, bike etc). You'll also need a smartphone with internet access for navigation and ride updates.</p>
     </div>
 </section>
 
 <!-- Join Section -->
 <section class="join" id="join">
     <h2>Ready to Drive?</h2>
-    <p>Join EkSeat and start earning today.</p>
-    <a href="signup.html" class="btn">Become a Driver</a>
+    <p>Join EkSeat.com and start earning today.</p>
+    <a href="signUp.php" class="btn">Become a Driver</a>
 </section>
+
 <?php include 'footer.html'; ?>
 </body>
 </html>

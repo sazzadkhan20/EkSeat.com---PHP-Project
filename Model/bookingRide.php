@@ -1,5 +1,6 @@
 <?php
     session_start();
+    
     require_once 'create.php';
     require_once 'query.php';
     require_once 'queryExecution.php';
@@ -19,7 +20,7 @@
         $transactionID =  strtoupper(bin2hex(random_bytes(16))).date("ymd");
         date_default_timezone_set("Asia/Dhaka"); // Set timezone
         $booking_date = date("M d, Y h:i A");
-        $email = $_SESSION['user_email'] ?? '';
+        $email = $_COOKIE['user_login'] ?? '';
         
         // Sanitize data (basic sanitization)
         $pickup = htmlspecialchars($pickup);

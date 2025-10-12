@@ -1,13 +1,15 @@
 <?php
-    include_once 'create.php';
+    session_start();
+
+    require_once 'create.php';
     require_once 'query.php';
+    require_once 'queryExecution.php';
     $table_name = "userinfo";
     db_create($dbname); //Database creation
     table_create($dbname,$table_name,$cquserinfotable); //table creation
 
     $email = $_POST['email'];
     $password = $_POST['password'];
-    require_once 'queryExecution.php';
     $result = emailVerify($adquserinfotable, $email);
     if ($row = $result->fetch_assoc()) 
     {
