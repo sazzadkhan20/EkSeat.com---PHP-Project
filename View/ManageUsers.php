@@ -115,7 +115,7 @@ h1{
 
 <body>
   <head>
-    <?php include_once 'admin_NavigationBar.html'; ?>
+    <?php include_once 'admin_NavigationBar.php'; ?>
   </head>
   
   <body>

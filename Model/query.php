@@ -39,9 +39,13 @@
     $iqridebookinghistorytable = "INSERT INTO ridebookinghistory(transactionID, uEmail, vehicleType, pickupLocation, destination, rent, distance,serviceType, rideDate) 
     VALUES(?, ?, ?, ?, ?, ?, ?,?, ?)";
     $adquserinfotable = "SELECT * FROM userinfo WHERE uEmail = ? LIMIT 1";
+    $adquserinfotableforall = "SELECT * FROM userinfo";
     $adqdriverinfotable = "SELECT * FROM driverinfo WHERE dEmail = ? LIMIT 1";
+    $adqdriverinfotableforall = "SELECT * FROM driverinfo";
     $adqadmininfotable = "SELECT * FROM admininfo WHERE aEmail = ? LIMIT 1";
+    $adqadmininfotableforall = "SELECT * FROM admininfo";
     $adqridebookinghistorytable = "SELECT * FROM ridebookinghistory WHERE uEmail = ? ORDER BY rideDate DESC";
+    $adqridebookinghistorytableforall = "SELECT * FROM ridebookinghistory";
     $uquserinfotable = "UPDATE userinfo SET uPassword = ? WHERE uEmail = ?";
     $uquserinfotableforname = "UPDATE userinfo SET uName = ? WHERE uEmail = ?";
     $uquserinfotableforemail = "UPDATE userinfo SET uEmail = ? WHERE uEmail = ?";
