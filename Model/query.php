@@ -51,6 +51,8 @@
     $uquserinfotableforimage = "UPDATE userinfo SET uImage = ? WHERE uEmail = ?";
     $uquserinfotableforpoints = "UPDATE userinfo SET uPoints = ? WHERE uEmail = ?";
     $uquserinfotablefortransaction = "UPDATE userinfo SET uTransactionAmount = ? WHERE uEmail = ?";
+    $dquserinfotable = "DELETE FROM userinfo WHERE uEmail = ?";
+    $dqridebookinghistorytable = "DELETE FROM ridebookinghistory WHERE uEmail = ?";
     $uqdriverinfotable = "UPDATE driverinfo SET dPassword = ? WHERE dEmail = ?";
     $uqdriverinfotableforpoints = "UPDATE driverinfo SET dPoints = ? WHERE dEmail = ?";
     $dqdriverinfotable = "DELETE FROM driverinfo WHERE dEmail = ?";

@@ -43,7 +43,23 @@
         $conn->close();
     }
 
-     function updateinfo_for_int($rquery,$condition,$email)
+    function deleteinfo($rquery,$condition)
+    {
+        $conn = new mysqli('localhost','root','','ekseat_com');
+        if($conn->connect_error)
+        die('Connection Failed : '.$conn->connect_error);
+        else
+        {
+            // Prepare and execute safely
+            $stmt = $conn->prepare($rquery);
+            $stmt->bind_param("s", $condition);
+            return $stmt->execute();
+            $stmt->close();
+        }
+        $conn->close();
+    }
+
+    function updateinfo_for_int($rquery,$condition,$email)
     {
         $conn = new mysqli('localhost','root','','ekseat_com');
         if($conn->connect_error)

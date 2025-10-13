@@ -255,6 +255,257 @@
         margin-top: 10px;
         font-size: 18px;
         }
+        
+        /* Delete Account Section */
+        .delete-account-section {
+            margin-top: 40px;
+            padding: 25px;
+            background-color: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-radius: 10px;
+        }
+        
+        .delete-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #e53e3e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .delete-description {
+            color: #718096;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .delete-btn {
+            background-color: #e53e3e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .delete-btn:hover {
+            background-color: #c53030;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(229, 62, 62, 0.3);
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 480px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0) scale(1);
+        }
+        
+        .modal-header {
+            padding: 30px 30px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b6b, #e53e3e);
+            color: white;
+            position: relative;
+        }
+        
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 36px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .modal-subtitle {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .modal-body {
+            padding: 25px 30px;
+        }
+        
+        .modal-message {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            text-align: center;
+            color: #4a5568;
+        }
+        
+        .warning-box {
+            background: rgba(251, 211, 141, 0.2);
+            border: 1px solid rgba(237, 137, 54, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .warning-icon {
+            color: #ed8936;
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .warning-text {
+            color: #4a5568;
+            font-size: 14px;
+        }
+        
+        .confirmation-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .confirmation-input:focus {
+            border-color: #e53e3e;
+            box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.2);
+            outline: none;
+        }
+        
+        .confirmation-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+        
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+        
+        .modal-btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            min-width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .modal-btn-cancel {
+            background: white;
+            color: #4a5568;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .modal-btn-cancel:hover {
+            background: #f7fafc;
+            border-color: #cbd5e0;
+        }
+        
+        .modal-btn-confirm {
+            background: #e53e3e;
+            color: white;
+            box-shadow: 0 4px 6px rgba(229, 62, 62, 0.3);
+        }
+        
+        .modal-btn-confirm:hover {
+            background: #c53030;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(229, 62, 62, 0.4);
+        }
+        
+        .modal-btn-confirm:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(229, 62, 62, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(229, 62, 62, 0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .modal-footer {
+                flex-direction: column;
+            }
+            
+            .modal-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -346,10 +597,127 @@
                         </button>
                     </div>
                 </form>
+                
+                <!-- Delete Account Section -->
+                <div class="delete-account-section">
+                    <div class="delete-title">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Delete Account
+                    </div>
+                    <div class="delete-description">
+                        Once you delete your account, there is no going back. This action is permanent and all your data will be erased.
+                    </div>
+                    <button class="delete-btn" id="deleteAccountBtn">
+                        <i class="fas fa-trash-alt"></i>
+                        Delete My Account
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+    
+    <!-- Delete Account Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-icon pulse">
+                    <i class="fas fa-exclamation"></i>
+                </div>
+                <h2 class="modal-title">Delete Your Account?</h2>
+                <p class="modal-subtitle">This action cannot be undone</p>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message">
+                    You are about to permanently delete your EkSeat account. 
+                    This will remove all your data, including ride history, personal information, and wallet balance.
+                </p>
+                
+                <div class="warning-box">
+                    <div class="warning-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="warning-text">
+                        <strong>Warning:</strong> This action is irreversible. Once deleted, you will not be able to recover your account or any associated data.
+                    </div>
+                </div>
+                
+                <label class="confirmation-label" for="confirmText">
+                    Type <strong>DELETE</strong> to confirm:
+                </label>
+                <input type="text" class="confirmation-input" id="confirmText" placeholder="Type DELETE here">
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-cancel" id="cancelDelete">
+                    <i class="fas fa-times"></i>
+                    Cancel
+                </button>
+                <button class="modal-btn modal-btn-confirm" id="confirmDelete" disabled>
+                    <i class="fas fa-trash-alt"></i>
+                    Delete Account
+                </button>
+            </div>
+        </div>
+    </div>
+
 <script src="../Controller/userProfileEditValidation.js"></script>
     <?php include_once 'footer.html'; ?>
+    
+    <script>
+        // Delete account modal functionality
+        const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+        const deleteModal = document.getElementById('deleteModal');
+        const cancelDeleteBtn = document.getElementById('cancelDelete');
+        const confirmDeleteBtn = document.getElementById('confirmDelete');
+        const confirmText = document.getElementById('confirmText');
+        
+        // Show modal when delete account button is clicked
+        deleteAccountBtn.addEventListener('click', function() {
+            deleteModal.classList.add('active');
+            confirmText.value = '';
+            confirmDeleteBtn.disabled = true;
+        });
+        
+        // Hide modal when cancel button is clicked
+        cancelDeleteBtn.addEventListener('click', function() {
+            deleteModal.classList.remove('active');
+        });
+        
+        // Hide modal when clicking outside the modal
+        deleteModal.addEventListener('click', function(e) {
+            if (e.target === deleteModal) {
+                deleteModal.classList.remove('active');
+            }
+        });
+        
+        // Enable/disable confirm button based on input
+        confirmText.addEventListener('input', function() {
+            if (this.value.toUpperCase() === 'DELETE') {
+                confirmDeleteBtn.disabled = false;
+            } else {
+                confirmDeleteBtn.disabled = true;
+            }
+        });
+        
+        // Redirect to userDelete.php when confirm button is clicked
+        confirmDeleteBtn.addEventListener('click', function() {
+            if (!this.disabled) {
+                // Add a loading state
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Deleting...';
+                this.disabled = true;
+                
+                // Simulate a brief delay before redirecting
+                setTimeout(() => {
+                    window.location.href = '../Model/userDelete.php';
+                }, 1500);
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && deleteModal.classList.contains('active')) {
+                deleteModal.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
