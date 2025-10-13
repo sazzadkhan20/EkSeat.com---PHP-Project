@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+    require_once '../Model/checkCookie.php';
+
+    // Check if user is logged in using cookies
+    $isLoggedIn = checkAuthCookieForAdmin();
+
+    // Dynamic navigation bar based on login status
+    if (!$isLoggedIn) 
+        header("Location: ../View/signIn.php");
+      
+?>
 <!DOCTYPE html>
 <html lang="en">
 

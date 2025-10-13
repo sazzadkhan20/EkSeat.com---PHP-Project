@@ -73,4 +73,37 @@ function checkAuthCookieForDriver() {
     return $isLoggedIn;
 }
 
+function checkAuthCookieForAdmin() {
+    $isLoggedIn = false;
+    
+    // Check if auth cookie exists
+    if (isset($_COOKIE['admin_email']) && isset($_COOKIE['login_time'])) {
+        $login_time = $_COOKIE['login_time'];
+        $current_time = time();
+        $timeout =  24 * 60 * 60; // 24 hours timeout (change as needed)
+        
+        // Check if session has expired
+        if (($current_time - $login_time) > $timeout) {
+            // Unset all admin cookies
+            setcookie("admin_email", "", time() - 3600, "/");
+            setcookie("login_time", "", time() - 3600, "/");
+            setcookie("admin_name", "", time() - 3600, "/");
+            setcookie("admin_id", "", time() - 3600, "/");
+            setcookie("admin_nid", "", time() - 3600, "/");
+            setcookie("admin_phone", "", time() - 3600, "/");
+            setcookie("admin_password", "", time() - 3600, "/");
+            setcookie("admin_address", "", time() - 3600, "/");
+            setcookie("admin_joiningDate", "", time() - 3600, "/");
+            setcookie("admin_role", "", time() - 3600, "/");
+            $isLoggedIn = false;
+        } else {
+            $isLoggedIn = true;
+        }
+    } else {
+        $isLoggedIn = false;
+    }
+    
+    return $isLoggedIn;
+}
+
 ?>

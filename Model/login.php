@@ -27,6 +27,7 @@
             //Set session variables
             $_SESSION['user_email'] = $email;
             
+            // Set Cookies for User
             setcookie("user_login", $email, $cookie_expiry, "/");
             setcookie("login_time", $login_time, $cookie_expiry, "/");
             setcookie("user_name", $row['uName'], $cookie_expiry, "/");
@@ -55,9 +56,10 @@
             if ($row['dPassword'] === $password)
             {
                 header("Location: ../View/driverActivity.php");
-                 //Set session variables
+                // Set session variables
                 $_SESSION['driver_email'] = $email;
                 
+                // Set Cookies for Driver
                 setcookie("driver_email", $email, $cookie_expiry, "/");
                 setcookie("login_time", $login_time, $cookie_expiry, "/");
                 setcookie("driver_name", $row['dName'], $cookie_expiry, "/");
@@ -87,16 +89,19 @@
                 if ($row['aPassword'] === $password)
                 {
                     header("Location: ../View/adminDashboard.php");
-                    // //Set session variables
-                    // $_SESSION['user_email'] = $email;
-                    // // Set cookies for 24 hours
-                    // $login_time = time();
-                    // $cookie_expiry = time() + (24 * 60 * 60); // 24 hours
-                    
-                    // setcookie("user_login", $email, $cookie_expiry, "/");
-                    // setcookie("login_time", $login_time, $cookie_expiry, "/");
-                    // setcookie("user_name", $row['uName'], $cookie_expiry, "/"); // User's display name
-                    // header("Location: ../View/home.php");
+                    $_SESSION['admin_email'] = $email;
+                
+                    // Set Cookies for Admin
+                    setcookie("admin_email", $email, $cookie_expiry, "/");
+                    setcookie("login_time", $login_time, $cookie_expiry, "/");
+                    setcookie("admin_name", $row['aName'], $cookie_expiry, "/");
+                    setcookie("admin_id", $row['aID'], $cookie_expiry, "/");
+                    setcookie("admin_nid", $row['aNID'], $cookie_expiry, "/");
+                    setcookie("admin_phone", $row['aPhone'], $cookie_expiry, "/");
+                    setcookie("admin_password", $row['aPassword'], $cookie_expiry, "/");
+                    setcookie("admin_address", $row['aAddress'], $cookie_expiry, "/");
+                    setcookie("admin_joiningDate", $row['aJoiningDate'], $cookie_expiry, "/");
+                    setcookie("admin_role", $row['aRole'], $cookie_expiry, "/");
                     exit();
                 }
                 else
