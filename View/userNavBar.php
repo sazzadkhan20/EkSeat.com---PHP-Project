@@ -19,7 +19,7 @@
       <div id="userMenu" class="menu-panel" role="dialog" aria-label="Account menu">
         <div class="menu-header">
           <div class="avatar">
-            <img src="" alt="User picture" style="width: 52px; height: 52px" />
+            <img src="Resources/user2.png" alt="User picture" style="width: 52px; height: 52px" />
           </div>
           <div>
             <div class="name"><?php echo $_COOKIE['user_name'] ?></div>
