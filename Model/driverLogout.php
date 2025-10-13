@@ -20,6 +20,6 @@
     session_destroy();
 
     // Redirect after clearing
-    header("Location: ../View/home.php");
+    header("Location: ../View/signIn.php");
     exit();
 ?>
