@@ -93,10 +93,21 @@ if ($isLoggedIn) {
     
     }
 
+ 
+.hero .btn-primary {
+    padding: 15px 40px; 
+    font-size: 1.2rem; 
+    max-width: 200px; 
+    height: 50px; 
+   
+}
+
+
     .btn-primary {
       background-color: #ff5722;
       color: white;
       box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+
     }
 
     .btn-primary:hover {
@@ -275,7 +286,8 @@ if ($isLoggedIn) {
         <p>Experience smooth and reliable rides across the city.</p>
         <p>Affordable fares, verified drivers, and real-time tracking.</p>
         <p>Book your ride anytime, anywhere — we're just one tap away!</p>
-        <button class="btn btn-primary" onclick="window.location.href='ride.php'">Book a Ride</button>
+        <button class="btn btn-primary " onclick="window.location.href='ride.php'">Book a Ride</button>
+
       </div>
       <img src="Resources/ride2.png" alt="Ride with EkSeat.com">
     </div>
