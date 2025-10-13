@@ -1,7 +1,19 @@
+<?php 
+    session_start();
+    require_once '../Model/checkCookie.php';
+
+    // Check if user is logged in using cookies
+    $isLoggedIn = checkAuthCookieForAdmin();
+
+    // Dynamic navigation bar based on login status
+    if (!$isLoggedIn) 
+        header("Location: ../View/signIn.php");
+      
+?>
 <style>
-    /* Sidebar Styles */
-#sidebar {
-    background: rgb(18,18,52);
+  /* Sidebar Styles */
+  #sidebar {
+    background: rgb(18, 18, 52);
     width: 250px;
     color: #fff;
     height: 100vh;
@@ -10,43 +22,43 @@
     left: 0; /* Align to the left of the page */
     padding-top: 20px;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3); /* Optional: Adds shadow for a 3D effect */
-}
+  }
 
-/* Profile Section */
-#profile {
+  /* Profile Section */
+  #profile {
     display: flex;
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid #333;
-}
+  }
 
-#profile-image {
+  #profile-image {
     margin-right: 10px;
-}
+  }
 
-#user-icon {
+  #user-icon {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-}
+  }
 
-#user-info h4 {
+  #user-info h4 {
     margin: 0;
     font-size: 16px;
-}
+  }
 
-#user-info p {
+  #user-info p {
     margin: 5px 0 0;
     font-size: 12px;
-}
+  }
 
-/* Navigation Links */
-#nav-links {
+  /* Navigation Links */
+  #nav-links {
     margin-top: 30px;
-}
+  }
 
-.nav-link {
+  .nav-link {
     display: block;
     color: #fff;
     text-decoration: none;
@@ -55,17 +67,17 @@
     border-radius: 10px;
     font-size: 14px;
     transition: background-color 0.3s;
-}
+  }
 
-.nav-link:hover {
+  .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.2);
-    
+
     margin-left: 20px;
     width: 70%;
-}
+  }
 
-/* Logout Link */
-.nav_link_bold {
+  /* Logout Link */
+  .nav_link_bold {
     display: block;
     color: #fc430f;
     text-decoration: none;
@@ -76,38 +88,35 @@
     font-size: 14px;
     font-weight: bold;
     transition: background-color 0.3s;
-}
-.nav_link_bold:hover {
+  }
+  .nav_link_bold:hover {
     color: rgba(255, 255, 255, 1);
     background-color: #fc430f;
     margin-left: 20px;
     width: 70%;
-}
+  }
 </style>
 
-
 <aside>
-    <div id="sidebar">
-        <div id="profile">
-            <div id="profile-image">
-                <img src="Resources/admin.png" alt="User" id="user-icon" />
-            </div>
-            <div id="user-info">
-                <h4>Admin View Point</h4>
-                <p>admin@ekseat.com</p>
-            </div>
-        </div>
-        <div id="nav-links">
-            <a href="adminDashboard.php" class="nav-link">Dashboard</a>
-            <a href="ManageUsers.php" class="nav-link">Manage Users</a>
-            <a href="ManageRiders.php" class="nav-link">Manage Riders</a>
-            <a href="ManageRoutes.php" class="nav-link">Manage Routes</a>
-            <a href="home.php" class="nav_link_bold">Logout</a>
-        </div>
+  <div id="sidebar">
+    <div id="profile">
+      <div id="profile-image">
+        <img src="Resources/admin.png" alt="User" id="user-icon" />
+      </div>
+      <div id="user-info">
+        <h4>Admin View Point</h4>
+        <p><?php echo $_COOKIE["admin_email"]; ?></p>
+      </div>
     </div>
+    <div id="nav-links">
+      <a href="adminDashboard.php" class="nav-link">Dashboard</a>
+      <a href="ManageUsers.php" class="nav-link">Manage Users</a>
+      <a href="ManageRiders.php" class="nav-link">Manage Riders</a>
+      <a href="ManageRoutes.php" class="nav-link">Manage Routes</a>
+      <a href="../Model/adminLogout.php" class="nav_link_bold">Logout</a>
+    </div>
+  </div>
 </aside>
-
-
 
 <!-- <aside>
     <div id="sidebar" style=" background: rgb(18,18,52);">

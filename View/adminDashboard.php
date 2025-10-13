@@ -1,6 +1,6 @@
 <?php 
-    session_start();
     require_once '../Model/checkCookie.php';
+    require_once '../Model/fetchAllData.php';
 
     // Check if user is logged in using cookies
     $isLoggedIn = checkAuthCookieForAdmin();
@@ -8,7 +8,9 @@
     // Dynamic navigation bar based on login status
     if (!$isLoggedIn) 
         header("Location: ../View/signIn.php");
-      
+    $totalUsers = fetch_data($adquserinfotableforall)->num_rows ? : 0;
+    $totalRiders = fetch_data($adqdriverinfotableforall)->num_rows ? : 0;
+    $totalBookings = fetch_data($adqridebookinghistorytableforall)->num_rows ? : 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,7 +140,7 @@ a:hover {
 
 <body>
   <head>
-    <?php include_once 'admin_NavigationBar.html'; ?>
+    <?php include_once 'admin_NavigationBar.php'; ?>
   </head>
   
   <body>
@@ -146,14 +148,16 @@ a:hover {
       <!-- Main content goes here -->
       <section class="content-container">
           <div class="card" >
-              <?php include_once '../Model/FetchNum_of_User.php'; ?>
+              <h1><?php echo $totalUsers; ?></h1>
+              <p>Active Users</p>
           </div>
           <div class="card" >
-              <?php include_once '../Model/FetchNum_of_Riders.php'; ?>
+              <h1><?php echo $totalRiders; ?></h1>
+              <p>Active Riders</p>
           </div>
           <div class="card">
-              <h1>42</h1>
-              <p>Number of Rides</p>
+              <h1><?php echo $totalBookings; ?></h1>
+              <p>Completed Rides</p>
           </div>           
       </section>
       
