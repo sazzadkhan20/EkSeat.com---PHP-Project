@@ -13,26 +13,26 @@ if ($conn->connect_error) {
 }
 
 // Write a query to get all user data
-$sql = "SELECT * FROM userinfo";
+$sql = "SELECT * FROM driverinfo";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Start the HTML table
     echo "<table border='1'>
             <tr>
-                <th>User NID</th>
-                <th>User Name</th>
-                <th>User Phone</th>
-                <th>User Email</th>
+                <th>Driver NID</th>
+                <th>Driver Name</th>
+                <th>Driver Phone</th>
+                <th>Driver Email</th>
             </tr>";
     
     // Output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<tr>
-                <td>" . $row['uNID'] . "</td>
-                <td>" . $row['uName'] . "</td>
-                <td>" . $row['uPhone'] . "</td>
-                <td>" . $row['uEmail'] . "</td>
+                <td>" . $row['dNID'] . "</td>
+                <td>" . $row['dName'] . "</td>
+                <td>" . $row['dPhone'] . "</td>
+                <td>" . $row['dEmail'] . "</td>
               </tr>";
     }
 
