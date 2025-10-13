@@ -109,7 +109,7 @@ a:hover {
 
 <body>
   <head>
-    <?php include_once 'admin_NavigationBar.html'; ?>
+    <?php include_once 'admin_NavigationBar.php'; ?>
   </head>
   
   <body>
