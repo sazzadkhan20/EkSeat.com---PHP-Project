@@ -25,9 +25,13 @@
           table_create($dbname,'driverinfo',$cqdriverinfotable); //table creation
           $address = $_POST['address'];
           $vehicleType = $_POST['vehicle_type'];
+          $randomNumber = rand(10000, 99999);   // 5 random digits
+          $datePart = date("ymd");            // YYMMDD format (e.g., 251013)
+          $dID =  "DRV-" . $randomNumber . "-" . $datePart;
+
           // Prepare and bind
           $stmt = $conn->prepare($iqdriverinfotable);
-          $stmt->bind_param("sssssss",$nid,$name,$phone,$email,$password,$address,$vehicleType);
+          $stmt->bind_param("ssssssss",$dID,$nid,$name,$phone,$email,$password,$address,$vehicleType);
           $stmt->execute();
           header("Location: ../View/drive.php");
           $stmt->close();

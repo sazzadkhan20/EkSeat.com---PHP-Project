@@ -278,7 +278,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="userWallet.php" class="nav-link">
                             <i class="fas fa-certificate"></i> Wallet
                         </a>
                     </li>

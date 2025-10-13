@@ -1,3 +1,32 @@
+<?php 
+    session_start();
+    require_once '../Model/checkCookie.php';
+
+    // Check if user is logged in using cookies
+    $isLoggedIn = checkAuthCookieForDriver();
+
+    // Dynamic navigation bar based on login status
+    if (!$isLoggedIn) 
+        header("Location: ../View/signIn.php");
+
+    $fullName = trim($_COOKIE["driver_name"]);
+    $parts = explode(" ", $fullName);
+    $firstName;
+    $lastName;
+    if (count($parts) > 1) 
+    {
+        // Last word is last name, rest is first name
+        $lastName = array_pop($parts);
+        $firstName = implode(" ", $parts);
+    } 
+    else 
+    {
+        // Only one word → treat as first name
+        $firstName = $fullName;
+        $lastName = "-";
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +54,7 @@
             --border-color: #dadce0;
             --success-color: #34a853;
             --danger-color: #ea4335;
+            --warning-color: #fbbc05;
             --card-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
             --hover-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
         
@@ -504,6 +534,202 @@
             background: #d32f2f;
         }
         
+        /* Enhanced Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 480px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0) scale(1);
+        }
+        
+        .modal-header {
+            padding: 30px 30px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #ff6b6b, var(--danger-color));
+            color: white;
+            position: relative;
+        }
+        
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 36px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .modal-subtitle {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .modal-body {
+            padding: 25px 30px;
+        }
+        
+        .modal-message {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            text-align: center;
+            color: var(--light-text);
+        }
+        
+        .warning-box {
+            background: rgba(251, 188, 5, 0.1);
+            border: 1px solid rgba(251, 188, 5, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .warning-icon {
+            color: var(--warning-color);
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .warning-text {
+            color: var(--text-color);
+            font-size: 14px;
+        }
+        
+        .confirmation-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .confirmation-input:focus {
+            border-color: var(--danger-color);
+            box-shadow: 0 0 0 2px rgba(234, 67, 53, 0.2);
+            outline: none;
+        }
+        
+        .confirmation-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+        
+        .modal-btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            min-width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .modal-btn-cancel {
+            background: white;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+        
+        .modal-btn-cancel:hover {
+            background: var(--secondary-color);
+            border-color: var(--light-text);
+        }
+        
+        .modal-btn-confirm {
+            background: var(--danger-color);
+            color: white;
+            box-shadow: 0 4px 6px rgba(234, 67, 53, 0.3);
+        }
+        
+        .modal-btn-confirm:hover {
+            background: #d32f2f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(234, 67, 53, 0.4);
+        }
+        
+        .modal-btn-confirm:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(234, 67, 53, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(234, 67, 53, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(234, 67, 53, 0);
+            }
+        }
+        
         /* Responsive Design */
         @media (max-width: 992px) {
             .sidebar {
@@ -551,6 +777,19 @@
                 margin-right: 0;
                 margin-bottom: 15px;
             }
+            
+            .modal {
+                width: 95%;
+                margin: 20px;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+            }
+            
+            .modal-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -558,14 +797,14 @@
     <!-- Sidebar -->
     <div class="sidebar">
             <div class="logo">
-                <img src="Resources/Logo.jpg" alt="Logo" style="height:30px;"/>
+            <a href="driverActivity.php"><img src="Resources/Logo.jpg" alt="Logo" style="height:30px;"/></a>
             </div>
             
             <div class="driver-profile">
-                <div class="driver-avatar">M</div>
+                <div class="driver-avatar"><?php echo strtoupper(substr($_COOKIE["driver_name"], 0, 2)); ?></div>
                 <div class="driver-details">
-                    <h2>Md. Sazzad Khan</h2>
-                    <p>Driver ID: DRV-7892</p>
+                    <h2><?php echo $_COOKIE["driver_name"]; ?></h2>
+                    <p>Driver ID: <?php echo $_COOKIE["driver_id"]; ?></p>
                 </div>
             </div>
             
@@ -585,7 +824,7 @@
                 <a href="driverHelp.php" class="nav-item">
                     <i class="fas fa-question-circle"></i> Help & Support
                 </a>
-                <a href="home.php" class="nav-item">
+                <a href="../Model/driverLogout.php" class="nav-item">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </div>
@@ -609,38 +848,39 @@
                 <h2 class="section-title">Profile Information</h2>
                 
                 <div class="profile-header">
-                    <div class="profile-avatar">M</div>
+                    <div class="profile-avatar"><?php echo strtoupper(substr($_COOKIE["driver_name"], 0, 2)); ?></div>
                     <div class="profile-info">
-                        <h3>Md. Sazzad Khan</h3>
-                        <p>Driver ID: DRV-7892</p>
+                        <h3><?php echo $_COOKIE["driver_name"]; ?></h3>
+                        <p>Driver ID: <?php echo $_COOKIE["driver_id"]; ?></p>
                         <span class="change-photo">Change Photo</span>
                     </div>
                 </div>
                 
+                <form action="../Model/updateDriverProfile.php" method="POST" class="driver-form">
                 <div class="form-grid">
                     <div class="form-group">
                         <label class="form-label">First Name</label>
-                        <input type="text" class="form-input" value="Md. Sazzad">
+                        <input type="text" class="form-input" Name = "FirstName" value="<?php echo $firstName; ?>">
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">Last Name</label>
-                        <input type="text" class="form-input" value="Khan">
+                        <input type="text" class="form-input" Name = "LastName" value="<?php echo $lastName; ?>">
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">Email Address</label>
-                        <input type="email" class="form-input" value="sazzad.khan@example.com">
+                        <input type="email" class="form-input" Name = "Email" value="<?php echo $_COOKIE["driver_email"]; ?>">
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">Phone Number</label>
-                        <input type="tel" class="form-input" value="+880 1XXX-XXXXXX">
+                        <input type="tel" class="form-input" Name = "Phone" value="<?php echo $_COOKIE["driver_phone"]; ?>">
                     </div>
                     
                     <div class="form-group full-width">
                         <label class="form-label">Address</label>
-                        <input type="text" class="form-input" value="Gulshan 1, Dhaka, Bangladesh">
+                        <input type="text" class="form-input" Name = "Address" value="<?php echo $_COOKIE["driver_address"]; ?>">
                     </div>
                 </div>
             </div>
@@ -715,7 +955,7 @@
                         </div>
                         <div class="payment-details">
                             <div class="payment-name">bKash</div>
-                            <div class="payment-info">01XXX-XXXXXX</div>
+                            <div class="payment-info"><?php echo $_COOKIE["driver_phone"]; ?></div>
                         </div>
                     </div>
                     
@@ -725,7 +965,7 @@
                         </div>
                         <div class="payment-details">
                             <div class="payment-name">Nagad</div>
-                            <div class="payment-info">01XXX-XXXXXX</div>
+                            <div class="payment-info"><?php echo $_COOKIE["driver_phone"]; ?></div>
                         </div>
                     </div>
                     
@@ -784,14 +1024,58 @@
                     <div class="danger-description">
                         Once you delete your account, there is no going back. This action is permanent and all your data will be erased.
                     </div>
-                    <button class="btn btn-danger">Delete My Account</button>
+                    <button type = "button" class="btn btn-danger" id="deleteAccountBtn">Delete My Account</button>
                 </div>
             </div>
             
             <!-- Action Buttons -->
             <div class="action-buttons">
-                <button class="btn btn-secondary">Cancel</button>
-                <button class="btn btn-primary">Save Changes</button>
+                <button type = "button" class="btn btn-secondary">Cancel</button>
+                <button type = "submit" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    </form>
+    
+    <!-- Enhanced Delete Account Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-icon pulse">
+                    <i class="fas fa-exclamation"></i>
+                </div>
+                <h2 class="modal-title">Delete Your Account?</h2>
+                <p class="modal-subtitle">This action cannot be undone</p>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message">
+                    You are about to permanently delete your EkSeat driver account. 
+                    This will remove all your data, including ride history, earnings, and personal information.
+                </p>
+                
+                <div class="warning-box">
+                    <div class="warning-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="warning-text">
+                        <strong>Warning:</strong> This action is irreversible. Once deleted, you will not be able to recover your account or any associated data.
+                    </div>
+                </div>
+                
+                <label class="confirmation-label" for="confirmText">
+                    Type <strong>DELETE</strong> to confirm:
+                </label>
+                <input type="text" class="confirmation-input" id="confirmText" placeholder="Type DELETE here">
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-cancel" id="cancelDelete">
+                    <i class="fas fa-times"></i>
+                    Cancel
+                </button>
+                <button class="modal-btn modal-btn-confirm" id="confirmDelete" disabled>
+                    <i class="fas fa-trash-alt"></i>
+                    Delete Account
+                </button>
             </div>
         </div>
     </div>
@@ -821,13 +1105,62 @@
         
         // Save changes button
         document.querySelector('.btn-primary').addEventListener('click', function() {
-            alert('Your settings have been saved successfully!');
+            //alert('Your settings have been saved successfully!');
         });
         
-        // Delete account button
-        document.querySelector('.btn-danger').addEventListener('click', function() {
-            if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
-                alert('Account deletion process would start here.');
+        // Delete account modal functionality
+        const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+        const deleteModal = document.getElementById('deleteModal');
+        const cancelDeleteBtn = document.getElementById('cancelDelete');
+        const confirmDeleteBtn = document.getElementById('confirmDelete');
+        const confirmText = document.getElementById('confirmText');
+        
+        // Show modal when delete account button is clicked
+        deleteAccountBtn.addEventListener('click', function() {
+            deleteModal.classList.add('active');
+            confirmText.value = '';
+            confirmDeleteBtn.disabled = true;
+        });
+        
+        // Hide modal when cancel button is clicked
+        cancelDeleteBtn.addEventListener('click', function() {
+            deleteModal.classList.remove('active');
+        });
+        
+        // Hide modal when clicking outside the modal
+        deleteModal.addEventListener('click', function(e) {
+            if (e.target === deleteModal) {
+                deleteModal.classList.remove('active');
+            }
+        });
+        
+        // Enable/disable confirm button based on input
+        confirmText.addEventListener('input', function() {
+            if (this.value.toUpperCase() === 'DELETE') {
+                confirmDeleteBtn.disabled = false;
+            } else {
+                confirmDeleteBtn.disabled = true;
+            }
+        });
+        
+        // Redirect to driverDelete.php when confirm button is clicked
+        confirmDeleteBtn.addEventListener('click', function() {
+            if (!this.disabled) {
+                // Add a loading state
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Deleting...';
+                this.disabled = true;
+                
+                // Simulate a brief delay before redirecting
+                setTimeout(() => {
+                    window.location.href = '../Model/driverDelete.php';
+                }, 1500);
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && deleteModal.classList.contains('active')) {
+                deleteModal.classList.remove('active');
             }
         });
     </script>

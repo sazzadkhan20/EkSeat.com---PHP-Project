@@ -10,7 +10,8 @@
                         uTransactionAmount DECIMAL(10,2) DEFAULT 0.00,
                         uregisterDate DATE DEFAULT (CURDATE()),
                         uPoints INT DEFAULT 1000";
-    $cqdriverinfotable = "dNID VARCHAR(20) PRIMARY KEY,
+    $cqdriverinfotable = "dID VARCHAR(20) PRIMARY KEY,
+                        dNID VARCHAR(20) NOT NULL,
                         dName VARCHAR(100) NOT NULL,
                         dPhone VARCHAR(15) NOT NULL,
                         dEmail VARCHAR(100) UNIQUE,
@@ -33,12 +34,13 @@
                                     rideDate VARCHAR(100) NOT NULL";
     $iquserinfotable = "insert into userinfo(uNID,uName,uPhone,uEmail,uPassword)
     values(?,?,?,?,?)";
-    $iqdriverinfotable = "INSERT INTO driverinfo(dNID, dName, dPhone, dEmail, dPassword, dAddress, dVehicleType) 
-    VALUES(?, ?, ?, ?, ?, ?, ?)";
+    $iqdriverinfotable = "INSERT INTO driverinfo(dID,dNID, dName, dPhone, dEmail, dPassword, dAddress, dVehicleType) 
+    VALUES(?,?, ?, ?, ?, ?, ?, ?)";
     $iqridebookinghistorytable = "INSERT INTO ridebookinghistory(transactionID, uEmail, vehicleType, pickupLocation, destination, rent, distance,serviceType, rideDate) 
     VALUES(?, ?, ?, ?, ?, ?, ?,?, ?)";
     $adquserinfotable = "SELECT * FROM userinfo WHERE uEmail = ? LIMIT 1";
     $adqdriverinfotable = "SELECT * FROM driverinfo WHERE dEmail = ? LIMIT 1";
+    $adqadmininfotable = "SELECT * FROM admininfo WHERE aEmail = ? LIMIT 1";
     $adqridebookinghistorytable = "SELECT * FROM ridebookinghistory WHERE uEmail = ? ORDER BY rideDate DESC";
     $uquserinfotable = "UPDATE userinfo SET uPassword = ? WHERE uEmail = ?";
     $uquserinfotableforname = "UPDATE userinfo SET uName = ? WHERE uEmail = ?";
@@ -46,8 +48,15 @@
     $uquserinfotablefornid = "UPDATE userinfo SET uNID = ? WHERE uEmail = ?";
     $uquserinfotableforaddress = "UPDATE userinfo SET uAddress = ? WHERE uEmail = ?";
     $uquserinfotableforphone = "UPDATE userinfo SET uPhone = ? WHERE uEmail = ?";
+    $uquserinfotableforimage = "UPDATE userinfo SET uImage = ? WHERE uEmail = ?";
     $uquserinfotableforpoints = "UPDATE userinfo SET uPoints = ? WHERE uEmail = ?";
     $uquserinfotablefortransaction = "UPDATE userinfo SET uTransactionAmount = ? WHERE uEmail = ?";
     $uqdriverinfotable = "UPDATE driverinfo SET dPassword = ? WHERE dEmail = ?";
     $uqdriverinfotableforpoints = "UPDATE driverinfo SET dPoints = ? WHERE dEmail = ?";
+    $dqdriverinfotable = "DELETE FROM driverinfo WHERE dEmail = ?";
+    $uqdriverinfotableforname = "UPDATE driverinfo SET dName = ? WHERE dEmail = ?";
+    $uqdriverinfotableforemail = "UPDATE driverinfo SET dEmail = ? WHERE dEmail = ?";
+    $uqdriverinfotablefornid = "UPDATE driverinfo SET dNID = ? WHERE dEmail = ?";
+    $uqdriverinfotableforaddress = "UPDATE driverinfo SET dAddress = ? WHERE dEmail = ?";
+    $uqdriverinfotableforphone = "UPDATE driverinfo SET dPhone = ? WHERE dEmail = ?";
 ?>
