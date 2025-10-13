@@ -583,7 +583,7 @@
                 <a href="home.php" class="active">Home</a>
                 <a href="ride.php">Rides</a>
                 <a href="userActivity.php">Activity</a>
-                <a href="#">Wallet</a>
+                <a href="userWallet.php">Wallet</a>
                 <a href="userProfile.php">Manage Account</a>
                 <a href="#">Help</a>
             </div>

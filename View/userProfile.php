@@ -231,6 +231,11 @@
             background-color: #2980b9;
         }
         
+        /* Hidden file input */
+        #profile-picture-input {
+            display: none;
+        }
+        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -257,7 +262,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="userWallet.php" class="nav-link">
                             <i class="fas fa-certificate"></i> Wallet
                         </a>
                     </li>
@@ -274,13 +279,15 @@
                 <div class="profile-picture-section">
                     <div class="cover-photo"></div>
                     <div class="profile-picture-container">
-                        <div class="profile-picture-placeholder">
+                        <div class="profile-picture-placeholder" id="profile-picture-placeholder">
                             <i class="fas fa-user"></i>
                         </div>
-                        <!-- Uncomment below and remove the placeholder when user uploads a picture -->
-                        <!-- <img src="profile-picture.jpg" alt="Profile Picture" class="profile-picture"> -->
+                        <!-- Image will be displayed here when selected -->
+                        <img id="profile-picture" src="" alt="Profile Picture" class="profile-picture" style="display: none;">
                     </div>
-                    <button class="change-picture-btn">
+                    <!-- Hidden file input -->
+                    <input type="file" id="profile-picture-input" accept="image/*">
+                    <button class="change-picture-btn" id="change-picture-btn">
                         <i class="fas fa-camera"></i> Change Picture
                     </button>
                 </div>
@@ -325,5 +332,39 @@
         </div>
     </div>
     <?php include_once 'footer.html'; ?>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get elements
+            const profilePictureInput = document.getElementById('profile-picture-input');
+            const changePictureBtn = document.getElementById('change-picture-btn');
+            const profilePicture = document.getElementById('profile-picture');
+            const profilePicturePlaceholder = document.getElementById('profile-picture-placeholder');
+            
+            // When the change picture button is clicked, trigger the file input
+            changePictureBtn.addEventListener('click', function() {
+                profilePictureInput.click();
+            });
+            
+            // When a file is selected, display the image preview
+            profilePictureInput.addEventListener('change', function() {
+                const file = this.files[0];
+                
+                if (file) {
+                    const reader = new FileReader();
+                    
+                    reader.addEventListener('load', function() {
+                        // Set the image source to the uploaded file
+                        profilePicture.src = reader.result;
+                        // Show the image and hide the placeholder
+                        profilePicture.style.display = 'block';
+                        profilePicturePlaceholder.style.display = 'none';
+                    });
+                    
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

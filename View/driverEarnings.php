@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+    require_once '../Model/checkCookie.php';
+
+    // Check if user is logged in using cookies
+    $isLoggedIn = checkAuthCookieForDriver();
+
+    // Dynamic navigation bar based on login status
+    if (!$isLoggedIn) 
+        header("Location: ../View/signIn.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -588,14 +599,14 @@
     <!-- Sidebar -->
     <div class="sidebar">
             <div class="logo">
-                <img src="Resources/Logo.jpg" alt="Logo" style="height:30px;"/>
+                <a href="driverActivity.php"><img src="Resources/Logo.jpg" alt="Logo" style="height:30px;"/></a>
             </div>
             
             <div class="driver-profile">
-                <div class="driver-avatar">M</div>
+                <div class="driver-avatar"><?php echo strtoupper(substr($_COOKIE["driver_name"], 0, 2)); ?></div>
                 <div class="driver-details">
-                    <h2>Md. Sazzad Khan</h2>
-                    <p>Driver ID: DRV-7892</p>
+                    <h2><?php echo $_COOKIE["driver_name"]; ?></h2>
+                    <p>Driver ID: <?php echo $_COOKIE["driver_id"]; ?></p>
                 </div>
             </div>
         
@@ -615,7 +626,7 @@
                 <a href="driverHelp.php" class="nav-item">
                     <i class="fas fa-question-circle"></i> Help & Support
                 </a>
-                <a href="home.php" class="nav-item">
+                <a href="../Model/driverLogout.php" class="nav-item">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </div>
@@ -647,14 +658,14 @@
         <div class="earnings-overview">
             <div class="earnings-card main">
                 <div class="card-title">Total Earnings</div>
-                <div class="card-value">BDT 12,540.00</div>
+                <div class="card-value">BDT <?php echo $_COOKIE["driver_transactionAmount"]; ?></div>
                 <div class="card-change positive">
                     <i class="fas fa-arrow-up"></i> 12.5% from last month
                 </div>
             </div>
             <div class="earnings-card">
                 <div class="card-title">Completed Rides</div>
-                <div class="card-value">44</div>
+                <div class="card-value">0</div>
                 <div class="card-change positive">
                     <i class="fas fa-arrow-up"></i> 8.2% from last month
                 </div>

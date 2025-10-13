@@ -28,7 +28,7 @@
         </div>
 
         <div class="menu-grid">
-          <a href="#" class="tile">Wallet</a>
+          <a href="userWallet.php" class="tile">Wallet</a>
           <a href="userActivity.php" class="tile">Activity</a>
         </div>
 
@@ -38,7 +38,7 @@
           <li><a href="drive.php">Drive &amp; deliver</a></li>
         </ul>
 
-        <a href="../Model/logout.php" class="signout">Sign out</a>
+        <a href="../Model/userLogout.php" class="signout">Sign out</a>
       </div>
   </div>
   </nav>

@@ -16,15 +16,16 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     $result = emailVerify($adquserinfotable, $email);
+    // Set cookies for 24 hours
+    $login_time = time();
+    $cookie_expiry = time() + (24 * 60 * 60); // 24 hours
     if ($row = $result->fetch_assoc()) 
     {
+        // User Panel
         if ($row['uPassword'] === $password)
         {
             //Set session variables
             $_SESSION['user_email'] = $email;
-            // Set cookies for 24 hours
-            $login_time = time();
-            $cookie_expiry = time() + (24 * 60 * 60); // 24 hours
             
             setcookie("user_login", $email, $cookie_expiry, "/");
             setcookie("login_time", $login_time, $cookie_expiry, "/");
@@ -47,34 +48,68 @@
     }
     else
     {
+        // Driver Panel
         $result = emailVerify($adqdriverinfotable, $email);
         if($row = $result->fetch_assoc())
         {
             if ($row['dPassword'] === $password)
             {
-                echo "Driver login - To be implemented";
-                // //Set session variables
-                // $_SESSION['user_email'] = $email;
-                // // Set cookies for 24 hours
-                // $login_time = time();
-                // $cookie_expiry = time() + (24 * 60 * 60); // 24 hours
+                header("Location: ../View/driverActivity.php");
+                 //Set session variables
+                $_SESSION['driver_email'] = $email;
                 
-                // setcookie("user_login", $email, $cookie_expiry, "/");
-                // setcookie("login_time", $login_time, $cookie_expiry, "/");
-                // setcookie("user_name", $row['uName'], $cookie_expiry, "/"); // User's display name
-                // header("Location: ../View/home.php");
+                setcookie("driver_email", $email, $cookie_expiry, "/");
+                setcookie("login_time", $login_time, $cookie_expiry, "/");
+                setcookie("driver_name", $row['dName'], $cookie_expiry, "/");
+                setcookie("driver_id", $row['dID'], $cookie_expiry, "/");
+                setcookie("driver_nid", $row['dNID'], $cookie_expiry, "/");
+                setcookie("driver_phone", $row['dPhone'], $cookie_expiry, "/");
+                setcookie("driver_password", $row['dPassword'], $cookie_expiry, "/");
+                setcookie("driver_address", $row['dAddress'], $cookie_expiry, "/");
+                setcookie("driver_vechileType", $row['dVehicleType'], $cookie_expiry, "/");
+                setcookie("driver_transactionAmount", $row['dTransactionAmount'], $cookie_expiry, "/");
+                setcookie("driver_registerDate", $row['dregisterDate'], $cookie_expiry, "/");
+                setcookie("driver_points", $row['dPoints'], $cookie_expiry, "/");
                 exit();
             }
             else
             {
                 $_SESSION['errorSignIn'] = "Invalid Password";
-                 header("Location: ../View/signIn.php");
+                header("Location: ../View/signIn.php");
             }
         }
         else
         {
-            $_SESSION['errorSignIn'] = "Invalid E-mail/Phone";
-            header("Location: ../View/signIn.php");
+            // Admin Panel
+            $result = emailVerify($adqadmininfotable, $email);
+            if($row = $result->fetch_assoc())
+            {
+                if ($row['aPassword'] === $password)
+                {
+                    header("Location: ../View/adminDashboard.php");
+                    // //Set session variables
+                    // $_SESSION['user_email'] = $email;
+                    // // Set cookies for 24 hours
+                    // $login_time = time();
+                    // $cookie_expiry = time() + (24 * 60 * 60); // 24 hours
+                    
+                    // setcookie("user_login", $email, $cookie_expiry, "/");
+                    // setcookie("login_time", $login_time, $cookie_expiry, "/");
+                    // setcookie("user_name", $row['uName'], $cookie_expiry, "/"); // User's display name
+                    // header("Location: ../View/home.php");
+                    exit();
+                }
+                else
+                {
+                    $_SESSION['errorSignIn'] = "Invalid Password";
+                    header("Location: ../View/signIn.php");
+                }
+            }
+            else
+            {
+                $_SESSION['errorSignIn'] = "Invalid E-mail/Phone";
+                header("Location: ../View/signIn.php");
+            }
         }
-    }
+   }
 ?>

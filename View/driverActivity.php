@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+    require_once '../Model/checkCookie.php';
+
+    // Check if user is logged in using cookies
+    $isLoggedIn = checkAuthCookieForDriver();
+
+    // Dynamic navigation bar based on login status
+    if (!$isLoggedIn) 
+        header("Location: ../View/signIn.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -488,14 +500,14 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="logo">
-                <img src="Resources/Logo.jpg" alt="Logo" style="height:30px;"/>
+                <a href="driverActivity.php"><img src="Resources/Logo.jpg" alt="Logo" style="height:30px;"/></a>
             </div>
             
             <div class="driver-profile">
-                <div class="driver-avatar">M</div>
+                <div class="driver-avatar"><?php echo strtoupper(substr($_COOKIE["driver_name"], 0, 2)); ?></div>
                 <div class="driver-details">
-                    <h2>Md. Sazzad Khan</h2>
-                    <p>Driver ID: DRV-7892</p>
+                    <h2><?php echo $_COOKIE["driver_name"]; ?></h2>
+                    <p>Driver ID: <?php echo $_COOKIE["driver_id"]; ?></p>
                 </div>
             </div>
             
@@ -515,7 +527,7 @@
                 <a href="driverHelp.php" class="nav-item">
                     <i class="fas fa-question-circle"></i> Help & Support
                 </a>
-                <a href="home.php" class="nav-item">
+                <a href="../Model/driverLogout.php" class="nav-item">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </div>
@@ -546,28 +558,28 @@
                     <div class="stat-icon">
                         <i class="fas fa-car"></i>
                     </div>
-                    <div class="stat-value">44</div>
+                    <div class="stat-value">0</div>
                     <div class="stat-label">Total Rides</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
                         <i class="fas fa-road"></i>
                     </div>
-                    <div class="stat-value">1900</div>
+                    <div class="stat-value">0</div>
                     <div class="stat-label">Distance (km)</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
-                        <i class="fas fa-star"></i>
+                        <i class="fa-solid fa-coins"></i>
                     </div>
-                    <div class="stat-value">4.8</div>
-                    <div class="stat-label">Rating</div>
+                    <div class="stat-value"><?php echo $_COOKIE["driver_points"]; ?></div>
+                    <div class="stat-label">Points</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
-                    <div class="stat-value">BDT 2070</div>
+                    <div class="stat-value">BDT <?php echo $_COOKIE["driver_transactionAmount"]; ?></div>
                     <div class="stat-label">Today's Earnings</div>
                 </div>
             </div>
@@ -579,7 +591,7 @@
                     <a href="#" class="view-all">View Report <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="earnings-display">
-                    <div class="earnings-amount">BDT 12,540.00</div>
+                    <div class="earnings-amount">BDT <?php echo $_COOKIE["driver_transactionAmount"]; ?></div>
                     <div class="earnings-period">This Week • 5% increase from last week</div>
                 </div>
             </div>
